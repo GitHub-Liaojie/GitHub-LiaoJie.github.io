@@ -20,7 +20,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
 	<!-- favicon -->
-  <link rel="shortcut icon" href="/null">
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
   <!-- css -->
   
@@ -34,10 +34,10 @@
 
 <script>
     const CONFIG_BGIMAGE = {
-      mode: 'normal',
+      mode: 'random_you',
       normalSrc: '/img/header-bg.jpg',
       randomYouMax: 110,
-      randomYouSrc: 'https://sariay.github.io/Random-img/',
+      randomYouSrc: 'https://liaojie-box.gitee.io/random-img/',
 	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
 	  preloaderEnable: true
     }
@@ -116,7 +116,7 @@
 <nav class="nav-container" id="cd-nav">
 	<div class="nav-header">
 		<span class="logo"> 
-			<img src="/null">
+			<img src="/img/logo.png">
 		</span>
 		<a href="javascript:;" class="nav-close"></a>
 	</div>
@@ -213,6 +213,12 @@
 				<span class="icon-rss"></span>
 			</a>
 		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
 			
 </ul>
 
@@ -291,7 +297,7 @@
 			</a>
 		
 		
-			<a href="/2020/11/13/03C%E8%AF%AD%E8%A8%80/" title="" rel="next">
+			<a href="/2020/11/13/hello-world/" title="[object Object]" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -342,7 +348,7 @@
 								十一月 9日, 2020				
 							</p>
 							<p class="relate-post-content">
-								大数据时代1printf(&quot;hello world !&quot;);
+								02创建博客1printf(&quot;hello world !&quot;);
 
 
 
@@ -368,8 +374,8 @@
 								十一月 8日, 2020				
 							</p>
 							<p class="relate-post-content">
-								
-第一节 Ubuntu 系统
+								第一节 Ubuntu 系统
+
 							</p>
 						</div>
 
@@ -620,29 +626,40 @@
 </footer>
 		
 	<!-- Local or hitokoto! -->
-
-	
-<script src="/plugin/motto/motto.js"></script>
-
-	
-	<script type="text/javascript">
+ 
+	<!-- 现代写法，推荐 -->
+	<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+	<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+	<!--End-->
+	<script>
 		(function motto(){
-			let mottoText = getMingYanContent().split('</br> - </br>'),
-			
-			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
-			
-			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
-			
-			mottoTextContent = mottoTextContent.trim().substring(0, 100);
-		
-			$("#motto-content").html( mottoTextContent);
-			$("#motto-author").html( mottoTextFrom  );
-		})();	
-	</script>	
+			fetch('https://v1.hitokoto.cn/?c=d')
+				.then(function (res){
+				return res.json();
+			}).then(function (data) {
+				$("#motto-content").html( data.hitokoto?data.hitokoto:'请刷新...' );
+				
+				let	mottoAuthor =' ';
+					mottoAuthor += data.creator?data.creator:'一言';
+					mottoAuthor += "　/　";
+					mottoAuthor += data.from?data.from:'一言官网';
+					
+				$("#motto-author").html( mottoAuthor );
+			})
+			.catch(function (err) {
+				console.error(err);
+			})			
+		})();
+	</script>
 
 
 
 <!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
 
 
 <!-- back to top -->
