@@ -1,0 +1,975 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      C++ 类的简单应用 | Blog
+    
+  </title>
+  <meta name="author" content="XiaoLi-Guo">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'random_you',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://liaojie-box.gitee.io/random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">Fetching...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「C++ 类的简单应用」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">Home</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">About</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">Search</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="Catalog"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2019/11/26/C++%2012%20C++%20%20%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" itemprop="url">
+		C++ 类的简单应用
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	Updated on
+
+	<a href="/2019/11/26/C++%2012%20C++%20%20%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" itemprop="url">
+		<time datetime="2019-11-25T16:00:00.000Z" itemprop="dateUpdated">
+	  		2020-11-14
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="/tags/C/" class=" ">
+			C++
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<h1 id="C-类的简单应用"><a href="#C-类的简单应用" class="headerlink" title="C++  类的简单应用"></a>C++  类的简单应用</h1><p>-11 股票类的编写及简单应用</p>
+<p><img src="/img/blog_img/c++/test.png"></p>
+<p>C++学习  类的简单应用<br>代码分析：</p>
+<p>注：类（Class）定义时：标准格式，首字母大写</p>
+<p>stock.h 代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#ifndef STOCK_H_</span><br><span class="line">#define STOCK_H_</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">class Stock                 &#x2F;&#x2F;定义了一个Stock 的类</span><br><span class="line">&#123;</span><br><span class="line">private:				    &#x2F;&#x2F;私有成员</span><br><span class="line">	std::string  company;   &#x2F;&#x2F;定义一个字符类型的私有成员</span><br><span class="line">	long shares;	    	&#x2F;&#x2F;定义一个long形的变量</span><br><span class="line">	double share_val;		&#x2F;&#x2F;定义一个double形的变量	</span><br><span class="line">	double total_val;		&#x2F;&#x2F;定义一个double类型的变量</span><br><span class="line">	void set_tot() &#123; total_val &#x3D; shares * share_val; &#125;  &#x2F;&#x2F;定义一个私有函数Set_tot()</span><br><span class="line">public:					    &#x2F;&#x2F;公有成员</span><br><span class="line">	Stock();			    &#x2F;&#x2F;定义默认的stock函数</span><br><span class="line">	Stock(const std::string &amp;co, long n &#x3D; 0, double pr &#x3D; 0.0);&#x2F;&#x2F;定义了带参数的公有stock函数</span><br><span class="line">	~Stock(); 		                  &#x2F;&#x2F;定义了一个析构函数</span><br><span class="line">	void buy(long num, double price); &#x2F;&#x2F;定义了buy（）函数</span><br><span class="line">	void sell(long num, double price);&#x2F;&#x2F;定义了sell() 函数</span><br><span class="line">	void update(double price);	      &#x2F;&#x2F;定义了update（）函数</span><br><span class="line">	void show();                      &#x2F;&#x2F;定义了show（）函数</span><br><span class="line">	Stock &amp; topval( Stock &amp; s);		  &#x2F;&#x2F;定义了一个有返回Stock 类的地址的总价比较topval（）函数</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>stock.cpp 代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&quot;stock.h&quot;</span><br><span class="line">Stock::Stock()   &#x2F;&#x2F;编写的Stock类里面的stock()函数（函数不含参数），也叫默认构造函数，即定义时不给参数，默认以下面的方式赋值</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; &quot;Default constructor called\n&quot;;  &#x2F;&#x2F;打印输出</span><br><span class="line">	company &#x3D; &quot;no name&quot;;            &#x2F;&#x2F;私有变量company赋值</span><br><span class="line">	shares &#x3D; 0;						&#x2F;&#x2F;私有变量赋值</span><br><span class="line">	share_val &#x3D; 0;					&#x2F;&#x2F;私有变量赋值</span><br><span class="line">	total_val &#x3D; 0;					&#x2F;&#x2F;私有变量赋值</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Stock::Stock(const std::string &amp;co, long n, double pr)  &#x2F;&#x2F;函数内部带有参数，初始化赋值</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; &quot;Constructor usig &quot; &lt;&lt; co &lt;&lt; &quot; called\n&quot;; &#x2F;&#x2F;打印输出</span><br><span class="line">	company &#x3D; co;								    	   &#x2F;&#x2F;公司名称赋值</span><br><span class="line">	if (n &lt; 0)											   &#x2F;&#x2F;默认赋值不能小于0，否则为0</span><br><span class="line">	&#123;													</span><br><span class="line">		std::cout &lt;&lt; &quot;Number of shares can&#39;tnbe negative ;&quot;&#x2F;&#x2F;打印输出</span><br><span class="line">			&lt;&lt; company &lt;&lt; &quot; shares set to 0.\n&quot;;</span><br><span class="line">		shares &#x3D; 0;									 	   &#x2F;&#x2F;股票数量赋值</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">		shares &#x3D; n;										   &#x2F;&#x2F;else 股票数量赋值</span><br><span class="line">	share_val &#x3D; pr;									       &#x2F;&#x2F;股票价格赋值</span><br><span class="line">	set_tot();										  	   &#x2F;&#x2F;公有函数调用私有成员函数set_tot（）函数</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Stock::~Stock()											   &#x2F;&#x2F;析构函数，函数形式固定，该函数不承担任何重要工作，可用于清理内存分配</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; &quot;Bye, &quot; &lt;&lt; company &lt;&lt; &quot;!\n&quot;;  			   &#x2F;&#x2F;打印输出</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">void Stock::buy(long num, double price)                    &#x2F;&#x2F;定义stock类的buy（）函数</span><br><span class="line">&#123;</span><br><span class="line">	if (num &lt; 0)										   &#x2F;&#x2F;购买数不能小于0</span><br><span class="line">	&#123;</span><br><span class="line">		std::cout &lt;&lt; &quot;Number of shares purchesed can&#39;t be negative.&quot;&#x2F;&#x2F;</span><br><span class="line">			&lt;&lt; &quot;Transaction is aborted.\n&quot;;				   &#x2F;&#x2F;打印输出</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		shares +&#x3D; num;									  &#x2F;&#x2F;购买后现在持有的股票数量</span><br><span class="line">		share_val &#x3D; price;								  &#x2F;&#x2F;现在股票的价格</span><br><span class="line">		set_tot();										  &#x2F;&#x2F;现在持有股票的价格</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Stock::sell(long num, double price)     			  &#x2F;&#x2F;定义stock类的sell（）函数</span><br><span class="line">&#123;</span><br><span class="line">	using std::cout;</span><br><span class="line">	if (num &lt; 0)										  &#x2F;&#x2F;出售股票数量不小于0</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;Number of shares sold can&#39;t be negative.&quot;&#x2F;&#x2F;打印输出</span><br><span class="line">			&lt;&lt; &quot;Transaction is aborted.\n&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (num &gt; shares)								  &#x2F;&#x2F;保证出售的股票要小于自身持有的股票</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; &quot;You can&#39;t sell more than you have! &quot;	  &#x2F;&#x2F;打印输出</span><br><span class="line">			&lt;&lt; &quot;Transaction is aborted.\n&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	else												 &#x2F;&#x2F;减去出售的股票数</span><br><span class="line">	&#123;</span><br><span class="line">		shares -&#x3D; num;								  	 &#x2F;&#x2F;现在持有的股票数（减去这次出售的股票数）</span><br><span class="line">		share_val &#x3D; price;								 &#x2F;&#x2F;当前的股票价格</span><br><span class="line">		set_tot();					   		             &#x2F;&#x2F;现在股票的价格</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void Stock::update(double price)	                     &#x2F;&#x2F;定义一个Stock的类的update函数（）</span><br><span class="line">&#123;</span><br><span class="line">	share_val &#x3D; price;									 &#x2F;&#x2F;读取当前时间的股票价格</span><br><span class="line">	set_tot();											 &#x2F;&#x2F;计算现在持有股票的总价</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Stock::show()							 			 &#x2F;&#x2F;定义了一个Stock的股票的价格显示函数show（）</span><br><span class="line">&#123;</span><br><span class="line">	using std::cout;									 &#x2F;&#x2F;表示使用名称空间std中的cout函数，后面就可以直接使用cout输出即可</span><br><span class="line">	using std::ios_base;								 &#x2F;&#x2F;表示使用名称空间std中的ios_base函数，后面就可以直接使用ios_base输出即可</span><br><span class="line">	ios_base::fmtflags orig &#x3D;   						 </span><br><span class="line">		cout.setf(ios_base::fixed, ios_base::floatfield);&#x2F;&#x2F;ios_base::fixed是设置cout为定点输出格式ios_base::floatfield是设置输出时按浮点格式，小数点后有6位数字 </span><br><span class="line">	std::streamsize prec &#x3D; cout.precision(3);			 &#x2F;&#x2F;输出小数点后2位，第3位四舍五入</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; &quot;Company: &quot; &lt;&lt; company&lt;&lt;&quot;\n&quot;			     &#x2F;&#x2F;打印输出</span><br><span class="line">		&lt;&lt; &quot; Shares: &quot; &lt;&lt; shares &lt;&lt; &quot;\n&quot;;</span><br><span class="line">	cout &lt;&lt; &quot; share price: $&quot; &lt;&lt; share_val &lt;&lt; &quot;\n&quot;;		 &#x2F;&#x2F;打印输出</span><br><span class="line">	cout.precision(2);									 &#x2F;&#x2F;设置打印输出后1位，第2位四舍五入</span><br><span class="line">	cout &lt;&lt; &quot; Total Worth: $&quot; &lt;&lt; total_val &lt;&lt; &quot;\n&quot;;		 &#x2F;&#x2F;打印输出</span><br><span class="line">	cout.setf(orig, ios_base::floatfield);				 &#x2F;&#x2F;打印输出设置</span><br><span class="line">	cout.precision(prec);								 &#x2F;&#x2F;设置默认输出精度</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> Stock &amp; Stock::topval( Stock &amp; s) 						 &#x2F;&#x2F;定义了一个股票总价值比较函数topval（）</span><br><span class="line">&#123;</span><br><span class="line">	if (s.total_val &gt; total_val)						 &#x2F;&#x2F;如果被比较的总价大于比较的总价</span><br><span class="line">		return s;										 &#x2F;&#x2F;返回被比较的类的地址</span><br><span class="line">	else</span><br><span class="line">		return *this;									 &#x2F;&#x2F;返回比较的地址</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>main.cpp 代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&quot;stock.h&quot;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	using std::cout;								       &#x2F;&#x2F;默认cout使用的是stdl里面的库</span><br><span class="line">	cout &lt;&lt; &quot;Using constructors to create new objects\n&quot;;  &#x2F;&#x2F;打印输出</span><br><span class="line">	Stock stock1(&quot;NanoSmart&quot;, 12, 20.0);       			   &#x2F;&#x2F;初始化Stock类 的变量stock1，并且在初始化时使用自身赋值的初始化</span><br><span class="line">	stock1.show();										   &#x2F;&#x2F;调用Stock类中的的show（）函数</span><br><span class="line">	Stock stock2 &#x3D; Stock(&quot;Boffo objects&quot;, 2, 2.0);		   &#x2F;&#x2F;初始化Stock类 的变量stock2，并且在初始化时使用自身赋值的初始化</span><br><span class="line">	stock2.show();										   &#x2F;&#x2F;调用Stock类中的的show（）函数</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; &quot;Assigning stock1 to stock2:\n&quot;;			   &#x2F;&#x2F;打印输出</span><br><span class="line">	stock2 &#x3D; stock1;									   &#x2F;&#x2F;赋值</span><br><span class="line">	cout &lt;&lt; &quot;Listiing stock1 and stock2:\n&quot;;			   &#x2F;&#x2F;打印输出</span><br><span class="line">	stock1.show();										   &#x2F;&#x2F;调用show()函数</span><br><span class="line">	stock2.show();										   &#x2F;&#x2F;调用show()函数</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; &quot;Using a constructor to reset an object\n&quot;;	   &#x2F;&#x2F;打印输出</span><br><span class="line">	stock1 &#x3D; Stock(&quot;Nifty Foods&quot;, 10, 50.0);	   		   &#x2F;&#x2F;变量初始化</span><br><span class="line">	cout &lt;&lt; &quot;Revised stock1:\n&quot;;						   &#x2F;&#x2F;打印输出</span><br><span class="line">	stock1.show();										   &#x2F;&#x2F;调用show()函数</span><br><span class="line">	cout &lt;&lt; &quot;Done\n&quot;;								       &#x2F;&#x2F;打印输出</span><br><span class="line"></span><br><span class="line">	Stock stock3 &#x3D; &#123; &quot;Alibaba&quot;,10,180 &#125;;				   &#x2F;&#x2F;列表初始化方式</span><br><span class="line">	stock3.show();</span><br><span class="line"></span><br><span class="line">	Stock stock4 &#x3D; &#123; &quot;Tencent&quot;,100 &#125;;					   &#x2F;&#x2F;省略参数的初始化</span><br><span class="line">	stock4.show();</span><br><span class="line"></span><br><span class="line">	Stock stock5 &#x3D; &#123;&#125;;									  &#x2F;&#x2F;不含参数的初始化</span><br><span class="line">	stock5.show();</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	const Stock stock6 &#x3D; &#123; &quot;Kingston&quot; &#125;;				  &#x2F;&#x2F;含有const 成员的调用 ,需要在class内部修改才可调用 show()函数</span><br><span class="line">	stock6.show();</span><br><span class="line"></span><br><span class="line">	Stock *top_val &#x3D; &amp;stock1;							  &#x2F;&#x2F;定义一个Stock类的指针，并且指向一个Stock类 成员的一个地址</span><br><span class="line">	top_val &#x3D;&amp;top_val-&gt;topval(stock2);			  		  &#x2F;&#x2F;调用Stock类的topval()函数</span><br><span class="line">	(*top_val).show();									  &#x2F;&#x2F;调用show（）函数</span><br><span class="line">														  &#x2F;&#x2F;或者使用 top-&gt;show();</span><br><span class="line"></span><br><span class="line">	top_val &#x3D; &amp;stock1.topval(stock2);					  &#x2F;&#x2F;另外一种实现的方式</span><br><span class="line">	(*top_val).show(); 									  &#x2F;&#x2F;调用show（）函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	Stock american_company[5] &#x3D; &#123;&#125;;						  &#x2F;&#x2F;类对象数组初始化和赋值，默认为0</span><br><span class="line">	american_company[0] &#x3D; &#123; &quot;Mircosoft&quot;,1000,158 &#125;;		  &#x2F;&#x2F;类对象数组0初始化</span><br><span class="line">	american_company[1] &#x3D; &#123; &quot;Amazon&quot;,400,800 &#125;;  		  &#x2F;&#x2F;类对象数组1初始化</span><br><span class="line">	cout &lt;&lt; &quot;---------------------------------------------------------\n&quot;;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 5; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		american_company[i].show();						  &#x2F;&#x2F;数组调用显示函数</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;---------------------------------------------------------\n&quot;;</span><br><span class="line">	for (int st &#x3D; 0; st &lt; 5; st++)</span><br><span class="line">	&#123;</span><br><span class="line">		top_val &#x3D; &amp;top_val-&gt;topval(american_company[st]);&#x2F;&#x2F;调用top_val()函数，并且返回类的地址</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;The top_val company is :\n&quot;;				 &#x2F;&#x2F;打印输出</span><br><span class="line">	top_val-&gt;show();									 &#x2F;&#x2F;调用show（）函数</span><br><span class="line"></span><br><span class="line">	system(&quot;pause&quot;);									 &#x2F;&#x2F;运行暂停</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/c++.png"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">Related post</div>
+					<div>Comment</div>
+					<div>Share</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">To Top</a>
+		
+			<a href="/2020/10/02/FPGA%2012%20FPGA%E5%BC%95%E8%84%9A%E9%85%8D%E7%BD%AE%E5%92%8C%E4%B8%8B%E8%BD%BD%E6%8E%A5%E5%8F%A3%E6%93%8D%E4%BD%9C/" title="FPGA" rel="prev">
+				&laquo;Pre post
+			</a>
+		
+		
+			<a href="/2019/11/13/C++%2008%20%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%93%8D%E4%BD%9C/" title="文件输入输出操作" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/10/28/C++%2013%20cc++%20%20HTTP(Https)%E5%8D%8F%E8%AE%AE%20API%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%89/" title="c/c++  HTTP/HTTPS  API调用接口的使用（源码分析）">
+								c/c++  HTTP/HTTPS  API调用接口的使用（源码分析）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十月 28日, 2020				
+							</p>
+							<p class="relate-post-content">
+								c/c++  HTTP/HTTPS  API调用接口的使用（源码分析）
+通过TCP 协议发送的最原始的API接口的数据
+//对于HTTP协议 和 HTTPS 协议，首先要明白两者的区别// 什么是HTTP协议 ：http协议是我们规定...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/10/28/C++%2013%20cc++%20%20HTTP(Https)%E5%8D%8F%E8%AE%AE%20API%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%89/" title="c/c++  HTTP/HTTPS  API调用接口的使用（源码分析）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="c/c++  HTTP/HTTPS  API调用接口的使用（源码分析）"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/13/C++%2008%20%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%93%8D%E4%BD%9C/" title="文件输入输出操作">
+								文件输入输出操作			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 13日, 2019				
+							</p>
+							<p class="relate-post-content">
+								文件输入输出操作
+
+1.输出(写入)到文本123456789101112131415161718192021222324252627282930313233343536#define _CRT_SECURE_NO_DEPRECATE ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/13/C++%2008%20%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%93%8D%E4%BD%9C/" title="文件输入输出操作">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="文件输入输出操作"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/13/C++%2010%20C++%E6%B1%82%E5%92%8C%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99/" title="C++求和函数编写">
+								C++求和函数编写			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 13日, 2019				
+							</p>
+							<p class="relate-post-content">
+								求和函数编写
+
+11 求和函数编写123456789101112131415161718192021222324#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/13/C++%2010%20C++%E6%B1%82%E5%92%8C%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99/" title="C++求和函数编写">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="C++求和函数编写"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/13/C++%2011%20C++%20const%E6%8C%87%E9%92%88%E7%9A%84%E4%BD%BF%E7%94%A8/" title="C++ const指针的使用">
+								C++ const指针的使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 13日, 2019				
+							</p>
+							<p class="relate-post-content">
+								C++  const指针的使用
+const指针的使用
+12345678910111213141516#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include&lt;io...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/13/C++%2011%20C++%20const%E6%8C%87%E9%92%88%E7%9A%84%E4%BD%BF%E7%94%A8/" title="C++ const指针的使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="C++ const指针的使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/13/C++%2009%20C++%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="C++函数编写注意事项">
+								C++函数编写注意事项			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 13日, 2019				
+							</p>
+							<p class="relate-post-content">
+								C++函数编写注意事项
+1234567891011121314151617181920#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include&lt;iostream&...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/13/C++%2009%20C++%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="C++函数编写注意事项">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="C++函数编写注意事项"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/12/C++%2001%20%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%AD%A6%E4%B9%A0/" title="c++基本内容输入输出">
+								c++基本内容输入输出			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								c++基本内容输入输出
+1234567891011121314151617181920212223#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include&lt;ios...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/12/C++%2001%20%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%AD%A6%E4%B9%A0/" title="c++基本内容输入输出">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="c++基本内容输入输出"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/12/C++%2002%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8c++%20cin%20cout/" title="c++ cin cout">
+								c++ cin cout			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								C++学习  cin cout
+12345678910111213141516#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include&lt;iostream&gt;#...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/12/C++%2002%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8c++%20cin%20cout/" title="c++ cin cout">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="c++ cin cout"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/12/C++%2003%20C++%20math%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" title="c++  math库的使用">
+								c++  math库的使用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								C++ math库的使用
+
+pow(）函数 
+sqrt(）函数123456789101112131415#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include&lt;...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/12/C++%2003%20C++%20math%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" title="c++  math库的使用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="c++  math库的使用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/12/C++%2004%20%20math%E5%BA%93%E7%9A%84%E8%AF%A6%E8%A7%A3/" title="C++ math库的详解">
+								C++ math库的详解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								C++ math库的详解
+
+1、cos() 函数
+123456789101112&#x2F;* cos example *&#x2F;#include &lt;stdio.h&gt;      &#x2F;* printf *&#x2...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/12/C++%2004%20%20math%E5%BA%93%E7%9A%84%E8%AF%A6%E8%A7%A3/" title="C++ math库的详解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="C++ math库的详解"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/12/C++%2005%20%E5%A4%9A%E4%B8%AA%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8using%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4%E7%9A%84%E6%93%8D%E4%BD%9C/" title="多个函数中使用using编译指令的操作">
+								多个函数中使用using编译指令的操作			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 12日, 2019				
+							</p>
+							<p class="relate-post-content">
+								多个函数中使用using编译指令的操作
+
+注意：需要在 int main() {}函数之前设置成为全局定义，否则会出错
+ eg:int find_max_value(int* value1, int* value2);12345678...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/12/C++%2005%20%E5%A4%9A%E4%B8%AA%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8using%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4%E7%9A%84%E6%93%8D%E4%BD%9C/" title="多个函数中使用using编译指令的操作">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="多个函数中使用using编译指令的操作"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">Home</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">About</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">Search</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+ 
+	<!-- 现代写法，推荐 -->
+	<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+	<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+	<!--End-->
+	<script>
+		(function motto(){
+			fetch('https://v1.hitokoto.cn/?c=d')
+				.then(function (res){
+				return res.json();
+			}).then(function (data) {
+				$("#motto-content").html( data.hitokoto?data.hitokoto:'请刷新...' );
+				
+				let	mottoAuthor =' ';
+					mottoAuthor += data.creator?data.creator:'一言';
+					mottoAuthor += "　/　";
+					mottoAuthor += data.from?data.from:'一言官网';
+					
+				$("#motto-author").html( mottoAuthor );
+			})
+			.catch(function (err) {
+				console.error(err);
+			})			
+		})();
+	</script>
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
