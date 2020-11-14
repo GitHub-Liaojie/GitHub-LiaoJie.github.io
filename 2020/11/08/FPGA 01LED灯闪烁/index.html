@@ -1,0 +1,893 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      FPGA | Blog
+    
+  </title>
+  <meta name="author" content="XiaoLi-Guo">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'random_you',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://liaojie-box.gitee.io/random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">Fetching...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「FPGA」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">Home</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">About</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">Search</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="Catalog"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2020/11/08/FPGA%2001LED%E7%81%AF%E9%97%AA%E7%83%81/" itemprop="url">
+		FPGA
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	Updated on
+
+	<a href="/2020/11/08/FPGA%2001LED%E7%81%AF%E9%97%AA%E7%83%81/" itemprop="url">
+		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
+	  		2020-11-14
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="/tags/FPGA%E5%AD%A6%E4%B9%A0/" class=" ">
+			FPGA学习
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<h1 id="01-led灯闪烁-FPGA-实验"><a href="#01-led灯闪烁-FPGA-实验" class="headerlink" title="01 led灯闪烁 FPGA 实验"></a>01 led灯闪烁 FPGA 实验</h1><ul>
+<li><p>led_flash.v 文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">module</span> <span class="title">led_flash</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params"> </span></span></span><br><span class="line"><span class="function"><span class="params"> <span class="comment">//端口列表</span></span></span></span><br><span class="line"><span class="function"><span class="params">  clk50M ,</span></span></span><br><span class="line"><span class="function"><span class="params">  Rst_n  ,</span></span></span><br><span class="line"><span class="function"><span class="params"> </span></span></span><br><span class="line"><span class="function"><span class="params">  led</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span>;  </span><br><span class="line"><span class="comment">// 这里类似与 C 语言的函数定义，也可以使用类似于C语言的定义，如下所示：</span></span><br><span class="line"><span class="comment">// module led_flash(input clk50M ,input Rst_n , reg [3:0]led);  </span></span><br><span class="line"><span class="comment">// 上述可以看到</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//端口定义</span></span><br><span class="line"> input clk50M ;</span><br><span class="line"> input Rst_n  ;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//output wire [3:0]led ; //定义的是一个【线网】类型的信号</span></span><br><span class="line"> output reg [<span class="number">3</span>:<span class="number">0</span>]led ; <span class="comment">//定义的是一个寄存器输出的端口</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//传参，修改定时器的值，方便在后续的参数传递时</span></span><br><span class="line"> <span class="comment">//仅仅只需要修改一个参数变量即可</span></span><br><span class="line"> <span class="comment">// 1、减少修改文件的数目</span></span><br><span class="line"> <span class="comment">// 2、减少修改出现的错误</span></span><br><span class="line"> parameter CNT_MAX = <span class="number">25&#x27;</span>d24_999_999 ; <span class="comment">//类似与  C 语言的 #define</span></span><br><span class="line"> </span><br><span class="line"> reg [<span class="number">24</span>:<span class="number">0</span>]cnt ;  <span class="comment">//定义一个25位的寄存器，用做计数</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//always 语句分析  </span></span><br><span class="line"> <span class="comment">// 总是关注 clk50M 信号的上升沿或者 Rst_n 的下降边沿，那么就会</span></span><br><span class="line"> <span class="comment">// 执行 always 里面的语句</span></span><br><span class="line"> <span class="comment">// always 语句，是不断在执行和处理的,</span></span><br><span class="line"> <span class="comment">// 个人理解： always 会不断执行alway 里面到下一个always 块之前的语句</span></span><br><span class="line"> <span class="comment">// 这里面属于一个单独的always 块，相当于分片进行设计和操作</span></span><br><span class="line"> <span class="comment">// 此外，always 和另外一个always 是互不影响的</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//第一个always块</span></span><br><span class="line">	 always@(posedge clk50M <span class="keyword">or</span> negedge Rst_n) </span><br><span class="line">	 <span class="comment">//  posedge ： 上升沿   negedge: 下降沿</span></span><br><span class="line">	 <span class="keyword">if</span>(!Rst_n) <span class="comment">//判断 复位引脚是否位低电平，如果是，则进入if语句执行一些操作</span></span><br><span class="line">		cnt &lt;=<span class="number">25&#x27;</span>d0 ;  <span class="comment">//进入if语句，表示Rst_n是低电平，则进入复位</span></span><br><span class="line">	 <span class="keyword">else</span> <span class="keyword">if</span>(cnt == CNT_MAX) <span class="comment">//判断是否到达定时器的值，到了，对cnt 清零</span></span><br><span class="line">		cnt &lt;= <span class="number">25&#x27;</span>d0 ;</span><br><span class="line">	 <span class="keyword">else</span> <span class="comment">//未满足上面的条件，则表示既没有复位，计数器的值也没有达到设定的值</span></span><br><span class="line">		cnt &lt;= cnt +<span class="number">1&#x27;b</span>1 ; <span class="comment">// cnt++</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">//第二个always 块，不影响其他always块的执行</span></span><br><span class="line">	 always@(posedge clk50M <span class="keyword">or</span> negedge Rst_n) </span><br><span class="line"> 	 <span class="keyword">if</span>(!Rst_n) <span class="comment">//判断 复位引脚是否位低电平，如果是，则进入if语句执行一些操作</span></span><br><span class="line">		led &lt;=  <span class="number">4&#x27;b</span>1111 ; <span class="comment">//上拉电阻，高电平熄灭</span></span><br><span class="line">	 <span class="keyword">else</span> <span class="keyword">if</span>(cnt == CNT_MAX)</span><br><span class="line">		led &lt;= ~led;    <span class="comment">//计时完成后，led的电平全部反转</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"> endmodule</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 编辑完成上述步骤后，进行分析和综和进行编译 按钮  start Analysie &amp; Synthesis</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>led_flash_tb.v 文件</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">`timescale <span class="number">1</span>ns/<span class="number">1</span>ns</span><br><span class="line"><span class="comment">//建议上面直接复制粘贴，不然容易出错</span></span><br><span class="line">`define clock_period <span class="number">20</span>  <span class="comment">//定义一个仿真的时钟周期的时间是20ns</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> led_flash_tb;</span><br><span class="line"> <span class="comment">//端口模块测试的端口定义</span></span><br><span class="line"> <span class="comment">//测试模块编写流程</span></span><br><span class="line"> reg clk50M ;</span><br><span class="line"> reg Rst_n  ; </span><br><span class="line"> <span class="comment">//output wire [3:0]led ; //定义的是一个【线网】类型的信号</span></span><br><span class="line"> wire [<span class="number">3</span>:<span class="number">0</span>]led ; <span class="comment">//定义的是一个寄存器输出的端口</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">//测试模块函数，重定义了一个新的 测试模块名称: led_flash0</span></span><br><span class="line"> <span class="comment">//传递参数进入</span></span><br><span class="line">  <span class="comment">//测试模块函数</span></span><br><span class="line"><span class="comment">// led_flash </span></span><br><span class="line"><span class="comment">// #(</span></span><br><span class="line"><span class="comment">//	.CNT_MAX(25&#x27;d249)   // 这里表示，在我们仿真的时候修改</span></span><br><span class="line"><span class="comment">//								// led_flash 模块里面的 CNT_MAX 修改为 25’d2499 进行仿真测试</span></span><br><span class="line"><span class="comment">//								// 参数传递的好处，不需要修改源文件的蚕食</span></span><br><span class="line"><span class="comment">//								// 保证实际电路的输出效果时不会出错</span></span><br><span class="line"><span class="comment">//  )</span></span><br><span class="line"><span class="comment">// //加入测试接口和函数</span></span><br><span class="line"><span class="comment">// led_flash0(</span></span><br><span class="line"><span class="comment">//  .clk50M(clk50M) ,</span></span><br><span class="line"><span class="comment">//  .Rst_n(Rst_n)   ,</span></span><br><span class="line"><span class="comment">//  .led(led)</span></span><br><span class="line"><span class="comment">//);  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//实际电路仿真， CNT_MAX 的参数不可更改 ，若 CNT_MAX参数，则实际电路仿真时会出错</span></span><br><span class="line"><span class="comment">//其余和逻辑仿真保持一致即可，注： 可以和上面的近对比。</span></span><br><span class="line"> led_flash </span><br><span class="line"> <span class="comment">//加入测试接口和函数</span></span><br><span class="line"> led_flash0(</span><br><span class="line">  .clk50M(clk50M) ,</span><br><span class="line">  .Rst_n(Rst_n)   ,</span><br><span class="line">  .led(led)</span><br><span class="line">);  </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="comment">//设定初始状态</span></span><br><span class="line">	initial clk50M =<span class="number">1</span> ; <span class="comment">//初始化 clk50M = 1 定义一个</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// always #10   clk50M = ~clk50M ; //延时10ns,时钟翻转一次，这样的话，时钟周期就是 20ns</span></span><br><span class="line"><span class="comment">// 也可以使用下面的方式进行操作 ,一个周期有 10ns 的低电平，10ns的高电平</span></span><br><span class="line"><span class="comment">// 每个电平持续时间是 10ns ， 则一个总的时钟信号周期就是 20ns</span></span><br><span class="line">	always #(`clock_period/<span class="number">2</span>) clk50M = ~clk50M ;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 初始化信号,（begin   end）</span></span><br><span class="line"><span class="comment">// 出现begin  后面必须有 end</span></span><br><span class="line"><span class="comment">// 开机执行一次</span></span><br><span class="line"></span><br><span class="line">	initial begin</span><br><span class="line">		Rst_n = <span class="number">0</span> ;</span><br><span class="line">		#(`clock_period*<span class="number">20</span>+<span class="number">1</span>);</span><br><span class="line">		Rst_n =<span class="number">1</span> ; <span class="comment">//延时20个周期+1，避免异步对准（齐）</span></span><br><span class="line">		</span><br><span class="line">		#(`clock_period*<span class="number">250000</span>+<span class="number">1</span>); <span class="comment">//仿真的延时时间</span></span><br><span class="line">		</span><br><span class="line">		$stop ; <span class="comment">//仿真停止</span></span><br><span class="line">		</span><br><span class="line">	end</span><br><span class="line"> </span><br><span class="line">endmodule</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 编写完成测试后，设置该源代码位仿真代码</span></span><br><span class="line"> <span class="comment">// Assigment-&gt;Settings --&gt; EDA Tool Settings </span></span><br><span class="line"> <span class="comment">// --&gt; Simulation --&gt; Compile test bench </span></span><br><span class="line"> <span class="comment">// 添加测试的文件 （点击 Test Benches --&gt; New）</span></span><br><span class="line"> <span class="comment">// 点击Filename 后面跟随的（...）--&gt; 添加自己的测试文件</span></span><br><span class="line"> <span class="comment">// 添加完成以后，在TestBench 里面添加 测试的文件名称（不要添加.v这个后缀） 即可</span></span><br><span class="line"> <span class="comment">// 保存--&gt; Ok--&gt; apply 即可</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 主界面 --&gt; Tools --&gt;  Run Simulation --&gt; RTL Simulation or Gate Level Simulation</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 重新仿真操作</span></span><br><span class="line"> <span class="comment">// 仿真出错 --&gt; 修改好文件 -&gt; 在仿真软件 -&gt;Library -&gt; Recompile  </span></span><br><span class="line"> <span class="comment">//  Reset --&gt; Run All</span></span><br><span class="line"> <span class="comment">// 出现仿真时间过长--&gt; break 进行停止</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 电路图视图 操作: 看内部实际电路的连接方式</span></span><br><span class="line"> <span class="comment">// Tools -&gt; NetList Viwers -&gt; RTL Viewer </span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 逻辑仿真和模拟实际情况下的仿真 的对比（不同点）</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// #(.CNT_MAX(25&#x27;d249)) 在逻辑电路可以传递参数</span></span><br><span class="line"> <span class="comment">// 实际电路中不可以传递参数</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 最后，配置IO 口进行下载到芯片中</span></span><br><span class="line"> <span class="comment">// 2种方式</span></span><br><span class="line"> <span class="comment">// 方式1、选择Pin planner  配置选中对应的IO口   Assigment-&gt;Pin Planner </span></span><br><span class="line"> <span class="comment">// 方式2、	①编写自动化脚本文件 new -&gt; File -&gt; Tcl_script.tcl 文件 （针对IO口较多的情况）</span></span><br><span class="line"> <span class="comment">//        	②编写完成后， Tools -&gt; Tcl_script --&gt; 导入 --&gt; run  执行编写的脚本文件</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/fpga.png"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">Related post</div>
+					<div>Comment</div>
+					<div>Share</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">To Top</a>
+		
+			<a href="/2020/11/08/C++%2005%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%20-%20%E5%89%AF%E6%9C%AC/" title="Ubuntu系统" rel="prev">
+				&laquo;Pre post
+			</a>
+		
+		
+			<a href="/2020/11/08/FPGA%2002LED%E6%B5%81%E6%B0%B4%E7%81%AF/" title="FPGA" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/C++%2002%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%20-%20%E5%89%AF%E6%9C%AC/" title="Ubuntu系统">
+								Ubuntu系统			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								第一节 C++
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/C++%2002%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%20-%20%E5%89%AF%E6%9C%AC/" title="Ubuntu系统">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="Ubuntu系统"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/QT%2001%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%20-%20%E5%89%AF%E6%9C%AC/" title="QT">
+								QT			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								第一节 Ubuntu 系统
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/QT%2001%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%20-%20%E5%89%AF%E6%9C%AC/" title="QT">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/QT.png" alt="QT"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/%E6%97%A5%E5%B8%B8%E7%94%B5%E8%84%91%E9%97%AE%E9%A2%98%2001%20word%E5%AF%BC%E5%85%A5Visio/" title="日常电脑问题">
+								日常电脑问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								第一节 Ubuntu 系统
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/%E6%97%A5%E5%B8%B8%E7%94%B5%E8%84%91%E9%97%AE%E9%A2%98%2001%20word%E5%AF%BC%E5%85%A5Visio/" title="日常电脑问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/pc_fix.png" alt="日常电脑问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/24/C%2006%20%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98/" title="函数指针问题">
+								函数指针问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 24日, 2019				
+							</p>
+							<p class="relate-post-content">
+								函数指针问题
+指向函数的指针：假设有3个函数函数void show(){printf(“This is a test !”)； }void show1() {printf(“This is a test !”)； } void sho...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/24/C%2006%20%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E9%97%AE%E9%A2%98/" title="函数指针问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c.png" alt="函数指针问题"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/23/C%2003%20%E5%87%BD%E6%95%B0%E7%9A%84%E7%9B%AE%E7%9A%84%E5%8F%8A%E6%84%8F%E4%B9%89/" title="函数的目的及意义">
+								函数的目的及意义			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第一节 C 语言 函数的目的及意义
+引入问题：求和1+2+3+….+100=?求和1+2+3+….+48=?求和2+4+6+….+80=?求和3+6+….+99=?如何用一个函数直接解决上述问题而不用重复编写代码？聪明人干的事：编写一...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/23/C%2003%20%E5%87%BD%E6%95%B0%E7%9A%84%E7%9B%AE%E7%9A%84%E5%8F%8A%E6%84%8F%E4%B9%89/" title="函数的目的及意义">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c.png" alt="函数的目的及意义"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/23/C%2002%20%E5%A4%9A%E4%B8%AA%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E5%90%8C%E4%B8%80%E4%B8%AA%E5%9C%B0%E6%96%B9%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E5%BA%94%E7%94%A8/" title="多个指针指向同一个地方的含义和应用">
+								多个指针指向同一个地方的含义和应用			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2019				
+							</p>
+							<p class="relate-post-content">
+								第一节 多个指针指向同一个地方的含义和应用
+eg：
+1234567891011int main()&#123; int a&#x3D;2; int *p&#x3D;NULL;&#x2F;&#x2F;定义一个空指针 int *m&#x3...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/23/C%2002%20%E5%A4%9A%E4%B8%AA%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E5%90%8C%E4%B8%80%E4%B8%AA%E5%9C%B0%E6%96%B9%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E5%BA%94%E7%94%A8/" title="多个指针指向同一个地方的含义和应用">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c.png" alt="多个指针指向同一个地方的含义和应用"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/22/C%2001%20%E6%8C%87%E9%92%88%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%A5%E5%8F%8Avoid%E7%9A%84%E8%AE%B2%E8%A7%A3/" title="指针初始化以及void的讲解">
+								指针初始化以及void的讲解			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 22日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
+C 语言 指针初始化以及void的讲解 int * p ;（地址变量）//这里定义了一个指针 ，但是在初始化之前需要给一个地址，否则在指向的时//候容易出现指向系统的位置 ，有可能会出现 错误。       故定义的时候需要在指向地...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/22/C%2001%20%E6%8C%87%E9%92%88%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%A5%E5%8F%8Avoid%E7%9A%84%E8%AE%B2%E8%A7%A3/" title="指针初始化以及void的讲解">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/c.png" alt="指针初始化以及void的讲解"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">Home</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">About</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">Search</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+ 
+	<!-- 现代写法，推荐 -->
+	<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+	<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+	<!--End-->
+	<script>
+		(function motto(){
+			fetch('https://v1.hitokoto.cn/?c=d')
+				.then(function (res){
+				return res.json();
+			}).then(function (data) {
+				$("#motto-content").html( data.hitokoto?data.hitokoto:'请刷新...' );
+				
+				let	mottoAuthor =' ';
+					mottoAuthor += data.creator?data.creator:'一言';
+					mottoAuthor += "　/　";
+					mottoAuthor += data.from?data.from:'一言官网';
+					
+				$("#motto-author").html( mottoAuthor );
+			})
+			.catch(function (err) {
+				console.error(err);
+			})			
+		})();
+	</script>
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
