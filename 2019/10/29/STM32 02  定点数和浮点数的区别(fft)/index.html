@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Ubuntu系统 | Blog
+      定点数和浮点数的区别(FFT) | Blog
     
   </title>
   <meta name="author" content="XiaoLi-Guo">
@@ -101,7 +101,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「Ubuntu系统」
+			「定点数和浮点数的区别(FFT)」
 		
 	</p>
 
@@ -253,8 +253,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2020/11/08/python%2004%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url">
-		Ubuntu系统
+	<a href="/2019/10/29/STM32%2002%20%20%E5%AE%9A%E7%82%B9%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB(fft)/" itemprop="url">
+		定点数和浮点数的区别(FFT)
 	</a>
 
 		</div>
@@ -270,8 +270,8 @@
 
 	Updated on
 
-	<a href="/2020/11/08/python%2004%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url">
-		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
+	<a href="/2019/10/29/STM32%2002%20%20%E5%AE%9A%E7%82%B9%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB(fft)/" itemprop="url">
+		<time datetime="2019-10-28T16:00:00.000Z" itemprop="dateUpdated">
 	  		2020-11-14
 	  </time>
 	</a> 
@@ -283,8 +283,8 @@
 				
 	<i class="icon-price-tags"></i>
 	
-		<a href="/tags/linux%E7%B3%BB%E7%BB%9F/" class=" ">
-			linux系统
+		<a href="/tags/STM32/" class=" ">
+			STM32
 		</a>
 	
 		
@@ -297,11 +297,22 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h1 id="第一节-C-语言"><a href="#第一节-C-语言" class="headerlink" title="第一节 C 语言"></a>第一节 C 语言</h1><p><img src="/img/blog_img/python/test.png"></p>
+			<h1 id="定点数和浮点数的区别"><a href="#定点数和浮点数的区别" class="headerlink" title="定点数和浮点数的区别"></a>定点数和浮点数的区别</h1><p><img src="./img/blog_img/stm32/test.png"></p>
+<h2 id="目的：理解定点数和浮点数在傅里叶变换（FFT）的实际应用中的选择"><a href="#目的：理解定点数和浮点数在傅里叶变换（FFT）的实际应用中的选择" class="headerlink" title="目的：理解定点数和浮点数在傅里叶变换（FFT）的实际应用中的选择"></a>目的：理解定点数和浮点数在傅里叶变换（FFT）的实际应用中的选择</h2><ul>
+<li> 单片机中如果需要进行一定的运算（常见的傅里叶变换）时，需要在不同情况下对AD采集的数据进行一定的处理才能得到正确的傅里叶变换后的数据，那么，选择正确的处理方式时，首先要解决的是定点数和浮点数的问题。</li>
+<li>如果使用过单片机的同学，一定会知道定点运算和浮点运算两个概念，那么，定点运算和浮点运算究竟是什么呢？<ul>
+<li>定点数的概念：<br>定点数字面意思就是数字是固定的，这里指的是数据在计算机中存取的位数是固定的，也就是说，给你一个数，存放在计算机中的位数是固定的。对于定点数来说，他是有局限性的，举例（eg）:<br>假设你要表示一个整数（假设是二进制的 110 0101），假设你使用的是8位的定点数表示，则为：<br>（0110 0101）前面的最高位是：0，这个位代表的是表示的数是正数还是负数，（0 代表正数，1代表负数）。<br>现在假设你要表示一个小数（假设0.625），且整数部分为0，那么在计算机中如何用8位的定点数表示呢？</li>
+</ul>
+0.625=0.5+0*0.25+0.125=（.101）<br>那么用定点数表示：（0101 0000），同样的，最高位（bit8）表示的是正数还是负数，后面的101 0000代表的是数据值，这样在实际的计算中，计算机就可以正确的理解数字的表示方法。<br>注：定点负数表示方法分为3步：<br>1.求正二进制数<br>2.取反+1<br>3.最高位置1<br>eg(-106):<br>用8位定点数表示：<br>   ——1.（106）=110 1010<br>   ——2. （110 1010）取反+1===》（001 0101）+（1）=（001 0110）<br>   ——3. 高位置1（1001 0110）<br>   这样就可以正确表示出一个负整数了。<ul>
+<li>浮点数的概念：<br>根据上述可知，假设你需要表示一个小数，且小数带有整数部分和小数部分，那么需要这么表示呢?<br>因为计算机并没有一个可以表示 “.” 小数点的东西，所以我们需要规定一种表示的方式，即：指数表示方式：<br>假设需要表示的是：（56.125），这种类型的数我们在计算机中则代表的是一个浮点数（有小数和整数部分组成），那么他是如何在计算机中表示的呢？<br>首先：将560.125变换成 5.60125*10的2次方.那么在计算机中规定了（尾数、基数、指数、三个概念），其中5.60125代表的是尾数，10代表的是基数，2次方代表的是指数。<br>这种方式就可以在计算机中代表任意的数字了。浮点数可以代表更多类型的数字，在实际的使用和计算的时候也相对更加精确。</li>
+</ul>
+</li>
+<li>以上是关于定点数和浮点数的介绍，后续将会继续完善和修改。</li>
+</ul>
 	
 		</div>
 		
-		<div id="current-post-cover" data-scr="/img/python.png"></div>
+		<div id="current-post-cover" data-scr="/img/stm32.png"></div>
 
 		<!-- relate post, comment...-->
 		<div class="investment-container">
@@ -316,12 +327,12 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2020/11/08/python%2002%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="Ubuntu系统" rel="prev">
+			<a href="/2019/11/07/C%2015%20C%E8%AF%AD%E8%A8%80%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/" title="C语言格式化读取文件" rel="prev">
 				&laquo;Pre post
 			</a>
 		
 		
-			<a href="/2020/11/08/python%2005%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="Ubuntu系统" rel="next">
+			<a href="/2019/05/23/C%2011%20%E6%95%B0%E7%BB%84%E7%9A%84%E6%99%AE%E9%80%9A%E6%9F%A5%E6%89%BE/" title="数组的普通查找" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -342,23 +353,72 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/%E6%97%A5%E5%B8%B8%E7%94%B5%E8%84%91%E9%97%AE%E9%A2%98%2001%20word%E5%AF%BC%E5%85%A5Visio/" title="日常电脑问题">
-								日常电脑问题			
+							<a class="relate-post-title" href="/2020/05/22/STM32%2003%20%20STM32%E4%B8%AD%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E9%87%8D%E5%AE%9A%E4%B9%89/" title="STM32中关键字的重定义">
+								STM32中关键字的重定义			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
+								五月 22日, 2020				
 							</p>
 							<p class="relate-post-content">
-								第一节 Ubuntu 系统
+								STM32中关键字的重定义
 
+项目为了在编写代码的时候更加的方便，需要一些关键字进行重新声明，如 uint32_t 关键字，我们一般使用 u32来进行表示，这样的话就可以更加方便的声明一些变量，下面是STM32中常用的关键字重定义函数...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2020/11/08/%E6%97%A5%E5%B8%B8%E7%94%B5%E8%84%91%E9%97%AE%E9%A2%98%2001%20word%E5%AF%BC%E5%85%A5Visio/" title="日常电脑问题">				
+							<a href="/2020/05/22/STM32%2003%20%20STM32%E4%B8%AD%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E9%87%8D%E5%AE%9A%E4%B9%89/" title="STM32中关键字的重定义">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/pc_fix.png" alt="日常电脑问题"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/stm32.png" alt="STM32中关键字的重定义"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/05/22/STM32%2004%20%20printf%E5%87%BD%E6%95%B0%E5%9C%A8STM32%E4%B8%AD%E7%94%A8%E6%9D%A5%E6%89%93%E5%8D%B0%E8%BE%93%E5%87%BA%E7%9A%84%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF/" title="printf函数在STM32中用来打印输出的调试信息">
+								printf函数在STM32中用来打印输出的调试信息			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 22日, 2020				
+							</p>
+							<p class="relate-post-content">
+								printf函数在STM32中用来打印输出的调试信息
+代码如下所示：
+1234567891011121314151617181920212223242526//在非os操作系统的情况下调用该函数即可#if 1#pragma impor...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/05/22/STM32%2004%20%20printf%E5%87%BD%E6%95%B0%E5%9C%A8STM32%E4%B8%AD%E7%94%A8%E6%9D%A5%E6%89%93%E5%8D%B0%E8%BE%93%E5%87%BA%E7%9A%84%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF/" title="printf函数在STM32中用来打印输出的调试信息">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/stm32.png" alt="printf函数在STM32中用来打印输出的调试信息"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/04/01/STM32%2001%20%20STM32%E7%A1%AC%E4%BB%B6SPI%E9%A9%B1%E5%8A%A8OLED%E5%B1%8F/" title="STM32硬件SPI驱动OLED屏（2'42寸）">
+								STM32硬件SPI驱动OLED屏（2'42寸）			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 1日, 2019				
+							</p>
+							<p class="relate-post-content">
+								STM32硬件SPI驱动OLED屏（2’42寸）
+需要的工具：1.CubeMX：2.MDK5(Keil 5):
+以STM32F103C8xx芯片配置为例：步骤：1.打开软件CubeMX（不同版本的软件内部不太一样）    以CubeM...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/04/01/STM32%2001%20%20STM32%E7%A1%AC%E4%BB%B6SPI%E9%A9%B1%E5%8A%A8OLED%E5%B1%8F/" title="STM32硬件SPI驱动OLED屏（2'42寸）">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/ubuntu.png" alt="STM32硬件SPI驱动OLED屏（2&#39;42寸）"/>
 							</a>
 						</div>
 					</li>												
@@ -389,8 +449,31 @@ led_flash.v 文件
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/QT%2002%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%20-%20%E5%89%AF%E6%9C%AC/" title="QT">
-								QT			
+							<a class="relate-post-title" href="/2020/11/08/QT%2001%20QT%20%E6%89%BE%E4%B8%8D%E5%88%B0%E6%88%96%E8%80%85%E6%98%AF%E4%B8%A2%E5%A4%B1.dll%E6%96%87%E4%BB%B6%20%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="QT 找不到或者是丢失.dll文件 的解决办法">
+								QT 找不到或者是丢失.dll文件 的解决办法			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								QT 找不到或者是丢失.dll文件 的解决办法
+QT 找不到或者是丢失.dll文件 的解决办法-11 最快速的方法：缺少哪个dll文件，去 安装软件下的 QT/BIN/xx.dll    直接复制到你运行的 xxx.exe文件下面，这...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/QT%2001%20QT%20%E6%89%BE%E4%B8%8D%E5%88%B0%E6%88%96%E8%80%85%E6%98%AF%E4%B8%A2%E5%A4%B1.dll%E6%96%87%E4%BB%B6%20%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="QT 找不到或者是丢失.dll文件 的解决办法">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/QT.png" alt="QT 找不到或者是丢失.dll文件 的解决办法"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/STM32%2005%20/" title="Ubuntu系统">
+								Ubuntu系统			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
@@ -403,9 +486,57 @@ led_flash.v 文件
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2020/11/08/QT%2002%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%20-%20%E5%89%AF%E6%9C%AC/" title="QT">				
+							<a href="/2020/11/08/STM32%2005%20/" title="Ubuntu系统">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/QT.png" alt="QT"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/ubuntu.png" alt="Ubuntu系统"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/python%2002%20python%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/" title="python脚本文件编译成可执行文件">
+								python脚本文件编译成可执行文件			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								python脚本文件编译成可执行文件（.exe文件）
+在windows下编译先决条件：1、已经在windows/linux 下面安装了 python
+2、打开win+R（CMD命令）输入：
+1pip intsall pyinstall...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/python%2002%20python%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/" title="python脚本文件编译成可执行文件">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/python.png" alt="python脚本文件编译成可执行文件"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/%E6%97%A5%E5%B8%B8%E7%94%B5%E8%84%91%E9%97%AE%E9%A2%98%2001%20word%E5%AF%BC%E5%85%A5Visio/" title="日常电脑问题">
+								日常电脑问题			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								第一节 Ubuntu 系统
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/%E6%97%A5%E5%B8%B8%E7%94%B5%E8%84%91%E9%97%AE%E9%A2%98%2001%20word%E5%AF%BC%E5%85%A5Visio/" title="日常电脑问题">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/pc_fix.png" alt="日常电脑问题"/>
 							</a>
 						</div>
 					</li>												
@@ -436,145 +567,27 @@ led_flash.v 文件
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/26/C++%2012%20C++%20%20%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" title="C++ 类的简单应用">
-								C++ 类的简单应用			
+							<a class="relate-post-title" href="/2020/10/02/FPGA%2013%20FPGA%20%E9%A1%B9%E7%9B%AE%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A1%86%E6%9E%B6%E5%9B%BE/" title="FPGA 项目基本结构框架图">
+								FPGA 项目基本结构框架图			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								十一月 26日, 2019				
+								十月 2日, 2020				
 							</p>
 							<p class="relate-post-content">
-								C++  类的简单应用-11 股票类的编写及简单应用
+								FPGA学习 FPGA 项目基本结构框架图
+FPGA 项目基本结构框架图：分析：
 
-C++学习  类的简单应用代码分析：
-注：类（Class）定义时：标准格式，首字母大写
-stock.h 代码
-1234567891011121314151617181920212...
+ Hierachy  可以看到整体的项目
+1、 beep_top  文件是项目的顶层文件，也就是最终 编译的文件
+  下面还有3个子文件： 分别是  ...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2019/11/26/C++%2012%20C++%20%20%E7%B1%BB%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8/" title="C++ 类的简单应用">				
+							<a href="/2020/10/02/FPGA%2013%20FPGA%20%E9%A1%B9%E7%9B%AE%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E6%A1%86%E6%9E%B6%E5%9B%BE/" title="FPGA 项目基本结构框架图">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="C++ 类的简单应用"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/13/C++%2008%20%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%93%8D%E4%BD%9C/" title="文件输入输出操作">
-								文件输入输出操作			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 13日, 2019				
-							</p>
-							<p class="relate-post-content">
-								文件输入输出操作
-
-1.输出(写入)到文本123456789101112131415161718192021222324252627282930313233343536#define _CRT_SECURE_NO_DEPRECATE ...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/13/C++%2008%20%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%93%8D%E4%BD%9C/" title="文件输入输出操作">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="文件输入输出操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/13/C++%2010%20C++%E6%B1%82%E5%92%8C%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99/" title="C++求和函数编写">
-								C++求和函数编写			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 13日, 2019				
-							</p>
-							<p class="relate-post-content">
-								求和函数编写
-
-11 求和函数编写123456789101112131415161718192021222324#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/13/C++%2010%20C++%E6%B1%82%E5%92%8C%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99/" title="C++求和函数编写">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="C++求和函数编写"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/13/C++%2011%20C++%20const%E6%8C%87%E9%92%88%E7%9A%84%E4%BD%BF%E7%94%A8/" title="C++ const指针的使用">
-								C++ const指针的使用			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 13日, 2019				
-							</p>
-							<p class="relate-post-content">
-								C++  const指针的使用
-const指针的使用
-12345678910111213141516#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include&lt;io...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/13/C++%2011%20C++%20const%E6%8C%87%E9%92%88%E7%9A%84%E4%BD%BF%E7%94%A8/" title="C++ const指针的使用">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="C++ const指针的使用"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/13/C++%2009%20C++%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="C++函数编写注意事项">
-								C++函数编写注意事项			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 13日, 2019				
-							</p>
-							<p class="relate-post-content">
-								C++函数编写注意事项
-1234567891011121314151617181920#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include&lt;iostream&...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/13/C++%2009%20C++%E5%87%BD%E6%95%B0%E7%BC%96%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="C++函数编写注意事项">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="C++函数编写注意事项"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/12/C++%2001%20%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%AD%A6%E4%B9%A0/" title="c++基本内容输入输出">
-								c++基本内容输入输出			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 12日, 2019				
-							</p>
-							<p class="relate-post-content">
-								c++基本内容输入输出
-1234567891011121314151617181920212223#define _CRT_SECURE_NO_DEPRECATE &#x2F;&#x2F;兼容C的标准格式#include&lt;ios...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/12/C++%2001%20%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%AD%A6%E4%B9%A0/" title="c++基本内容输入输出">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/c++.png" alt="c++基本内容输入输出"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/fpga.png" alt="FPGA 项目基本结构框架图"/>
 							</a>
 						</div>
 					</li>												
