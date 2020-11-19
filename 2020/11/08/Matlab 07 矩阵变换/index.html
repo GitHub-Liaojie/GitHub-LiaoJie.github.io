@@ -1,0 +1,956 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      矩阵变换 | Blog
+    
+  </title>
+  <meta name="author" content="XiaoLi-Guo">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'random_you',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 110,
+      randomYouSrc: 'https://liaojie-box.gitee.io/random-img/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: false,
+	  appId: 'AU8...',
+	  appKey: '4cU...',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">Fetching...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「矩阵变换」
+		
+	</p>
+
+	
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">Home</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">About</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">Search</a>
+		</li>
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-zhihu"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-sina-weibo "></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-pinterest2"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="Catalog"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2020/11/08/Matlab%2007%20%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2/" itemprop="url">
+		矩阵变换
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	Updated on
+
+	<a href="/2020/11/08/Matlab%2007%20%E7%9F%A9%E9%98%B5%E5%8F%98%E6%8D%A2/" itemprop="url">
+		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
+	  		2020-11-19
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="/tags/Matlab/" class=" ">
+			Matlab
+		</a>
+	
+		
+			</span>
+			
+			
+
+
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<h1 id="matlab-矩阵变换"><a href="#matlab-矩阵变换" class="headerlink" title="matlab 矩阵变换"></a>matlab 矩阵变换</h1><p><img src="/img/blog_img/matlab/test.png"></p>
+<h2 id="【对角阵】-【三角阵】-【矩阵的转置】-【矩阵的旋转】【矩阵的翻转】-【矩阵求逆】"><a href="#【对角阵】-【三角阵】-【矩阵的转置】-【矩阵的旋转】【矩阵的翻转】-【矩阵求逆】" class="headerlink" title="【对角阵】 【三角阵】 【矩阵的转置】 【矩阵的旋转】【矩阵的翻转】 【矩阵求逆】"></a>【对角阵】 【三角阵】 【矩阵的转置】 【矩阵的旋转】【矩阵的翻转】 【矩阵求逆】</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">% 第二节 矩阵变换</span><br><span class="line">% 矩阵变换</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%主要内容</span><br><span class="line">% 求解 【对角阵】 【三角阵】 【矩阵的转置】 【矩阵的旋转】</span><br><span class="line">%      【矩阵的翻转】 【矩阵求逆】</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 对角矩阵</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% <span class="number">3</span>种对角矩阵：</span><br><span class="line">% 对角矩阵:只有对角线上有非零元素的矩阵。</span><br><span class="line">% 数量矩阵:对角线上的元素相等的对角矩阵。</span><br><span class="line">% 单位矩阵:对角线上的元素都为<span class="number">1</span>的对角矩阵。</span><br><span class="line"></span><br><span class="line">% <span class="number">1</span>、提取矩阵的对角线元素</span><br><span class="line">% diag(A）:提取矩阵的主对角线元素，产生一个向量</span><br><span class="line">% diag(v,k) :以向量V为k条对角线元素，产生对角矩阵。</span><br><span class="line"></span><br><span class="line">% eg: </span><br><span class="line">% 例<span class="number">1</span>先建立<span class="number">5</span>x <span class="number">5</span>矩阵A，然后将A的第一行元素乘以<span class="number">1</span>， 第二行乘</span><br><span class="line">% 以<span class="number">2</span>，...第五行乘以<span class="number">5</span>。</span><br><span class="line">A=[<span class="number">7</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">5</span>;<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">1</span>;<span class="number">4</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">2</span>;<span class="number">1</span>,<span class="number">1</span>,<span class="number">9</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">1</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">9</span>]</span><br><span class="line">diag(A) %提取主对角线元素</span><br><span class="line">diag(A,<span class="number">3</span>) % 好像有点问题，没有理解 </span><br><span class="line">% 注：diag(A,<span class="number">3</span>） 主对角线为 diag(A,<span class="number">0</span>),向上的对角线为&gt;<span class="number">0</span>的对角线</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">D=diag(<span class="number">1</span>:<span class="number">1</span>:<span class="number">5</span>) % 等价于 diag（<span class="number">1</span>：<span class="number">5</span>）</span><br><span class="line">D*A % D矩阵左乘 A 可以实现 矩阵A列向量 的倍乘（注：首先保证 D 是对角阵）</span><br><span class="line">A*D % D矩阵右乘 A 可以实现 矩阵A行向量 的倍乘（注：首先保证 D 是对角阵）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%  三角阵</span><br><span class="line">% 上三角阵:矩阵的对角线以下的元素全为零的矩阵。</span><br><span class="line">% 下三角阵:对角线以上的元素全为零的矩阵。</span><br><span class="line"></span><br><span class="line">%上三角矩阵</span><br><span class="line">% triu(A):提取矩阵A的主对角线及以上的元素。</span><br><span class="line">% triu(A,k):提取矩阵A的第k条对角线及以上的元素。</span><br><span class="line">ones(<span class="number">4</span>)</span><br><span class="line">triu(ones(<span class="number">4</span>)) %提取得到的上三角矩阵</span><br><span class="line">triu(ones(<span class="number">4</span>),<span class="number">-1</span>)    %提取得到离主对角线下方为<span class="number">1</span> 的上三角矩阵</span><br><span class="line">triu(ones(<span class="number">4</span>),<span class="number">1</span>)     %提取得到离主对角线上方方为<span class="number">1</span> 的上三角矩阵</span><br><span class="line">triu(ones(<span class="number">4</span>),<span class="number">2</span>)     %提取得到离主对角线上方方为<span class="number">2</span> 的上三角矩阵</span><br><span class="line">% 注：不好理解的话可以看下运行后的效果，可很好的分析triu(A,k)中k值的理解</span><br><span class="line"></span><br><span class="line">% 下三角矩阵</span><br><span class="line">% tril(A):提取矩阵A的主对角线及以下的元素。</span><br><span class="line">% tril(A,k):提取矩阵A的第k条对角线及以下的元素。</span><br><span class="line">ones(<span class="number">4</span>)</span><br><span class="line">tril(ones(<span class="number">4</span>)) %提取得到的下三角矩阵</span><br><span class="line">tril(ones(<span class="number">4</span>),<span class="number">-1</span>)    %提取得到离主对角线下方为<span class="number">1</span> 的下三角矩阵</span><br><span class="line">tril(ones(<span class="number">4</span>),<span class="number">1</span>)     %提取得到离主对角线下方方为<span class="number">1</span> 的下三角矩阵</span><br><span class="line">tril(ones(<span class="number">4</span>),<span class="number">2</span>)     %提取得到离主对角线下方方为<span class="number">2</span> 的下三角矩阵</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 矩阵的转置</span><br><span class="line">% 转置矩阵的定义：m×n矩阵A的行换成同序数的列得到一个n×m矩阵，此矩阵叫做A的转置矩阵</span><br><span class="line">% https:<span class="comment">//baike.baidu.com/item/%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/4150715?fr=aladdin</span></span><br><span class="line">% 转置运算符是小数点后面接单引号(<span class="number">.&#x27;</span>)</span><br><span class="line">% 共轭转置，其运算符是单引号（&#x27;）,它再转置的基础上还要取每个数的复共轭</span><br><span class="line">% eg 区分转置 和 共轭转置</span><br><span class="line">A=[<span class="number">1</span>,<span class="number">3</span>;<span class="number">3</span>+<span class="number">4</span>i,<span class="number">1</span><span class="number">-2</span>i]</span><br><span class="line">A<span class="number">.&#x27;</span>  % A的转置</span><br><span class="line">A<span class="number">&#x27;</span>   % A的共轭转置 ，特点 ；也是转置，但是虚部需要取反（正的变负的，负的变正的）</span><br><span class="line"></span><br><span class="line">% 矩阵旋转</span><br><span class="line">% rot90(A,k):将矩阵A(逆时针)方向旋转<span class="number">90</span>°的k倍，当k为<span class="number">1</span>时可省略。</span><br><span class="line">% eg </span><br><span class="line">B=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>;<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">rot90(B) % 等价于rot90(B，<span class="number">1</span>) ,矩阵逆时针旋转<span class="number">90</span>度</span><br><span class="line">rot90(B,<span class="number">1</span>)% 等价于rot90(B)</span><br><span class="line">rot90(B,<span class="number">2</span>)% 矩阵逆时针旋转<span class="number">90</span>*<span class="number">2</span>=<span class="number">180</span>度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 矩阵翻转</span><br><span class="line">% fliplr(A):对矩阵A实施左右翻转。（lr: left right）</span><br><span class="line">fliplr(B)</span><br><span class="line">% flipud(A):对矩阵A实施上下翻转。( ud : up  down)</span><br><span class="line">flipud(B)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% eg 验证魔方阵的主对角线 副对角线 元素之和相等</span><br><span class="line">A=magic(<span class="number">5</span>)</span><br><span class="line">D1=diag(A) % 得到的是主对角线组成的列向量</span><br><span class="line">sum(D1) % 主对角线元素之和</span><br><span class="line"></span><br><span class="line">flipud(A)</span><br><span class="line">D2=diag(flipud(A)) %对矩阵 A进行上下翻转，这样副对角线就变成了主对角线</span><br><span class="line">sum(D2)     %  副对角线元素之和</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 矩阵求逆</span><br><span class="line">% 定义:对于一个方阵A，如果存在一个与其同阶的方阵B,使</span><br><span class="line">% 得AB=BA=I (I为单位矩阵)，则称B为A的逆矩阵，当然，</span><br><span class="line">% A也是B的逆矩阵。                        </span><br><span class="line">% inv(A) 求方阵的逆矩阵</span><br><span class="line"></span><br><span class="line">% eg 用逆矩阵求解线性方程组</span><br><span class="line">% x+<span class="number">2</span>y+<span class="number">3</span>z=<span class="number">5</span></span><br><span class="line">% x+<span class="number">4</span>y+<span class="number">9</span>z=<span class="number">-2</span></span><br><span class="line">% x+<span class="number">8</span>y+<span class="number">27</span>z=<span class="number">6</span></span><br><span class="line">% 等价于 A*[x,y,z]^T=[<span class="number">5</span>,<span class="number">-2</span>,<span class="number">6</span>]^T</span><br><span class="line">% A=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>;<span class="number">1</span>,<span class="number">8</span>,<span class="number">27</span>] 是x,y,z 前面参数组成的矩阵</span><br><span class="line">% 且 A*[x,y,z]^T=[<span class="number">5</span>,<span class="number">-2</span>,<span class="number">6</span>]^T 满足 [<span class="number">3</span>*<span class="number">3</span>] * [<span class="number">3</span>*<span class="number">1</span>]==[<span class="number">3</span>*<span class="number">1</span>] 的矩阵乘法运算</span><br><span class="line">% 所以 求 [x,y,z] 只需要左乘 A的逆就可以进行求解</span><br><span class="line">% matlab 实现</span><br><span class="line">A=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>;<span class="number">1</span>,<span class="number">8</span>,<span class="number">27</span>]</span><br><span class="line">b=[<span class="number">5</span>;<span class="number">-2</span>;<span class="number">6</span>] % 是一个 <span class="number">3</span>*<span class="number">1</span> 的列向量（注：不要生成了 行向量）</span><br><span class="line">x=inv(A)*b % 等价 x=A\b  读法： A左除b</span><br><span class="line">x=A\b      % 等价 x=inv(A)*b  读法 b 乘以 A的逆</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/matlab.png"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">Related post</div>
+					<div>Comment</div>
+					<div>Share</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">To Top</a>
+		
+			<a href="/2020/11/08/Matlab%2006%20%20%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%20%E9%9A%8F%E6%9C%BA%E7%9F%A9%E9%98%B5%E5%92%8C%E9%80%9A%E7%94%A8%E7%9F%A9%E9%98%B5%E7%9A%84%E4%BA%A7%E7%94%9F/" title="特殊矩阵 随机矩阵和通用矩阵的产生" rel="prev">
+				&laquo;Pre post
+			</a>
+		
+		
+			<a href="/2020/11/08/Matlab%2008%20%20%E7%9F%A9%E9%98%B5%E6%B1%82%E5%80%BC/" title="矩阵求值" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2001%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="matlab 变量和向量（数组）的定义">
+								matlab 变量和向量（数组）的定义			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 变量和向量（数组）的定义
+1234567891011121314% matlab 基本操作x=sin(1); %调用的是 sin（x)数学函数    sin=[1,2,3,4,5]; %调用的是 sin[]的一个数组  ...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2001%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="matlab 变量和向量（数组）的定义">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 变量和向量（数组）的定义"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2002%20matlab%20%E6%95%B0%E5%80%BC%E6%95%B0%E6%8D%AE%20%E5%AE%9A%E4%B9%89%20%E5%88%86%E7%B1%BB/" title="matlab 数值数据 定义 分类">
+								matlab 数值数据 定义 分类			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 数值数据 定义 分类
+【复数】数据 【矩阵创建】【常用函数】【取整函数】【取余函数】【冒号表达式】1234567891011121314151617181920212223242526272829303132333435...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2002%20matlab%20%E6%95%B0%E5%80%BC%E6%95%B0%E6%8D%AE%20%E5%AE%9A%E4%B9%89%20%E5%88%86%E7%B1%BB/" title="matlab 数值数据 定义 分类">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 数值数据 定义 分类"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">
+								矩阵基本操作			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本操作
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">
+								字符串处理和字符型数据			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 字符串处理和字符型数据
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2006%20%20%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%20%E9%9A%8F%E6%9C%BA%E7%9F%A9%E9%98%B5%E5%92%8C%E9%80%9A%E7%94%A8%E7%9F%A9%E9%98%B5%E7%9A%84%E4%BA%A7%E7%94%9F/" title="特殊矩阵 随机矩阵和通用矩阵的产生">
+								特殊矩阵 随机矩阵和通用矩阵的产生			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
+【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】12345678910111213141516171819202122232425262728293...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2006%20%20%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%20%E9%9A%8F%E6%9C%BA%E7%9F%A9%E9%98%B5%E5%92%8C%E9%80%9A%E7%94%A8%E7%9F%A9%E9%98%B5%E7%9A%84%E4%BA%A7%E7%94%9F/" title="特殊矩阵 随机矩阵和通用矩阵的产生">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="特殊矩阵 随机矩阵和通用矩阵的产生"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2008%20%20%E7%9F%A9%E9%98%B5%E6%B1%82%E5%80%BC/" title="矩阵求值">
+								矩阵求值			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵求值
+【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】123456789101112131415161718192021222324252627282930313233343536373839...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2008%20%20%E7%9F%A9%E9%98%B5%E6%B1%82%E5%80%BC/" title="矩阵求值">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵求值"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
+								稀疏矩阵			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 稀疏矩阵
+1234567891011121314151617181920212223242526272829303132333435% 第二节 矩阵变换% 稀疏矩阵%矩阵的存储方式%1、完全存储方式%2、稀疏存储方式:稀...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2011%20%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/" title="matlab 程序设计的基本步骤">
+								matlab 程序设计的基本步骤			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 程序设计的基本步骤
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2011%20%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/" title="matlab 程序设计的基本步骤">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 程序设计的基本步骤"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+		<div class="config-info">
+			Please check the parameter of <b>comment</b> in config.yml of hexo-theme-Annie!
+		</div>	
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">Home</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">Archive</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">Category</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">Tag</a>
+		</li>
+		
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about" target="_blank">About</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">Gallery</a>
+		</li>
+		
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">Search</a>
+		</li>
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Sariay. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+ 
+	<!-- 现代写法，推荐 -->
+	<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+	<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+	<!--End-->
+	<script>
+		(function motto(){
+			fetch('https://v1.hitokoto.cn/?c=d')
+				.then(function (res){
+				return res.json();
+			}).then(function (data) {
+				$("#motto-content").html( data.hitokoto?data.hitokoto:'请刷新...' );
+				
+				let	mottoAuthor =' ';
+					mottoAuthor += data.creator?data.creator:'一言';
+					mottoAuthor += "　/　";
+					mottoAuthor += data.from?data.from:'一言官网';
+					
+				$("#motto-author").html( mottoAuthor );
+			})
+			.catch(function (err) {
+				console.error(err);
+			})			
+		})();
+	</script>
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+  
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup scrollbar" >
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
