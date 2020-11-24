@@ -272,7 +272,7 @@
 
 	<a href="/2020/11/08/Matlab%2001%20%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" itemprop="url">
 		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-19
+	  		2020-11-24
 	  </time>
 	</a> 
 
@@ -297,8 +297,9 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h1 id="matlab-变量和向量（数组）的定义"><a href="#matlab-变量和向量（数组）的定义" class="headerlink" title="matlab 变量和向量（数组）的定义"></a>matlab 变量和向量（数组）的定义</h1><p><img src="/img/blog_img/matlab/test.png"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">% matlab 基本操作</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x=<span class="built_in">sin</span>(<span class="number">1</span>); %调用的是 <span class="built_in">sin</span>（x)数学函数</span><br><span class="line">    </span><br><span class="line"><span class="built_in">sin</span>=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]; %调用的是 <span class="built_in">sin</span>[]的一个数组</span><br><span class="line">    </span><br><span class="line">x=<span class="built_in">sin</span>(<span class="number">1</span>);% 得到的结果是 x=<span class="number">1</span>  在matlab中，【自己定义的变量优先级高于本身的优先集】，所以得到的结果是<span class="number">1</span></span><br><span class="line">%所以在定义的时候一定要注意不要使用内部函名称来定义变量，这个和C语言有所区别</span><br><span class="line">%matlab是先在当前文件夹中搜索,然后是在其搜索路径搜索</span><br><span class="line">%也就是说，当出现连个名字一样的 .m文件时，需要先运行的是当前文件夹的。m文件</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+			<h1 id="matlab-变量和向量（数组）的定义"><a href="#matlab-变量和向量（数组）的定义" class="headerlink" title="matlab 变量和向量（数组）的定义"></a>matlab 变量和向量（数组）的定义</h1><p><img src="./img/blog_img/matlab/test.png"></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">% matlab 基本操作</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x=<span class="built_in">sin</span>(<span class="number">1</span>); <span class="comment">%调用的是 sin（x)数学函数</span></span><br><span class="line">    </span><br><span class="line"><span class="built_in">sin</span>=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]; <span class="comment">%调用的是 sin[]的一个数组</span></span><br><span class="line">    </span><br><span class="line">x=<span class="built_in">sin</span>(<span class="number">1</span>);<span class="comment">% 得到的结果是 x=1  在matlab中，【自己定义的变量优先级高于本身的优先集】，所以得到的结果是1</span></span><br><span class="line"><span class="comment">%所以在定义的时候一定要注意不要使用内部函名称来定义变量，这个和C语言有所区别</span></span><br><span class="line"><span class="comment">%matlab是先在当前文件夹中搜索,然后是在其搜索路径搜索</span></span><br><span class="line"><span class="comment">%也就是说，当出现连个名字一样的 .m文件时，需要先运行的是当前文件夹的。m文件</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 		</div>
 		
@@ -317,7 +318,7 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2020/11/08/FPGA%2011%20%E6%8C%89%E9%94%AE%E6%B6%88%E6%8A%96%E8%AF%95%E9%AA%8C/" title="FPGA" rel="prev">
+			<a href="/2020/11/08/FPGA%2010%20%E7%8A%B6%E6%80%81%E6%9C%BA%E7%9A%84%E7%90%86%E8%A7%A3/" title="FPGA" rel="prev">
 				&laquo;Pre post
 			</a>
 		
@@ -375,7 +376,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 矩阵基本操作
-【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】【改变矩阵的形状】12345678910111213141516171819202122232425262728293031323334...
 							</p>
 						</div>
 
@@ -383,29 +384,6 @@
 							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
-								matlab 矩阵基本运算			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵基本运算
-【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -421,7 +399,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 字符串处理和字符型数据
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
@@ -429,6 +407,29 @@
 							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】【逆矩阵】123456789101112131415161718192021222324252627282930313233343536373839404...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -444,7 +445,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
-【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】12345678910111213141516171819202122232425262728293...
+【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】12345678910111213141...
 							</p>
 						</div>
 
@@ -504,29 +505,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
-								矩阵的特征值与特征向量			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵的特征值与特征向量
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
 								稀疏矩阵			
 							</a>
@@ -544,6 +522,29 @@
 							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
 							</a>
 						</div>
 					</li>												

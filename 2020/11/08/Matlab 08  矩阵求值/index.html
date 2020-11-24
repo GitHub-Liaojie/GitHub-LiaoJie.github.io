@@ -272,7 +272,7 @@
 
 	<a href="/2020/11/08/Matlab%2008%20%20%E7%9F%A9%E9%98%B5%E6%B1%82%E5%80%BC/" itemprop="url">
 		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-19
+	  		2020-11-20
 	  </time>
 	</a> 
 
@@ -298,7 +298,8 @@
 
 		<div class="article-content" id="article-content">
 			<h1 id="matlab-矩阵求值"><a href="#matlab-矩阵求值" class="headerlink" title="matlab 矩阵求值"></a>matlab 矩阵求值</h1><p><img src="/img/blog_img/matlab/test.png"></p>
-<h2 id="【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】"><a href="#【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】" class="headerlink" title="【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】"></a>【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">% 第二节 矩阵变换</span><br><span class="line">% 矩阵求值</span><br><span class="line"></span><br><span class="line">%主要包括</span><br><span class="line">%<span class="number">1</span>、矩阵的行列式值</span><br><span class="line">%<span class="number">2</span>、矩阵的秩</span><br><span class="line">%<span class="number">3</span>、矩阵的迹</span><br><span class="line">%<span class="number">4</span>、矩阵的范数</span><br><span class="line">%<span class="number">5</span>、矩阵的条件数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 方阵行列式</span><br><span class="line">% 把一一个方阵看作一个行列式，并对其按行列式的规则求值，这个</span><br><span class="line">% 值就称为方阵所对应的行列式的值。</span><br><span class="line">% det(A):求方阵A所对应的行列式的值。</span><br><span class="line">% eg 验证 det(A^<span class="number">-1</span>)=<span class="number">1</span>/det(A)</span><br><span class="line">A=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>;<span class="number">-3</span>,<span class="number">2</span>,<span class="number">1</span>;<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">format rat %有理数形式输出</span><br><span class="line">det(inv(A)) % A的逆矩阵的行列式</span><br><span class="line"><span class="number">1</span>/det(A)  % 矩阵A的行列式的倒数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 矩阵线性无关的行数或列数称为矩阵的秩。</span><br><span class="line">% ranklA):求矩阵A的秩。</span><br><span class="line">% eg 求<span class="number">3</span><span class="number">-20</span>阶魔方阵的秩</span><br><span class="line"><span class="keyword">for</span> n=<span class="number">3</span>:<span class="number">20</span>                  %<span class="keyword">for</span>循环</span><br><span class="line">    r(n)=rank(magic(n));    %生成魔方阵，求到的矩阵的秩可以存放在向量 r(n)中</span><br><span class="line">end</span><br><span class="line">bar(r)  %生成一个条形统计图</span><br><span class="line">grid on %打开网格线</span><br><span class="line">axis([<span class="number">2</span>,<span class="number">21</span>,<span class="number">0</span>,<span class="number">20</span>]) % 设置坐标范围，这里设置的是 x坐标 <span class="number">2</span><span class="number">-21</span> y坐标<span class="number">0</span><span class="number">-20</span></span><br><span class="line">% axis 函数的两种用法</span><br><span class="line">%axis([xmin xmax ymin ymax])</span><br><span class="line">%axis([xmin xmax ymin ymax zmin zmaxcmin cmax])</span><br><span class="line">% 奇数阶魔方阵秩为n，即奇数阶魔方阵是满秩矩阵。</span><br><span class="line">% 重偶数阶魔方阵秩为n/<span class="number">2</span>+<span class="number">2</span> ( n是<span class="number">2</span>的倍数，但非<span class="number">4</span>的倍数)。</span><br><span class="line">%双重偶数阶魔方阵秩均为<span class="number">3</span> ( 阶数是<span class="number">4</span>的倍数),</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 矩阵的迹</span><br><span class="line">% 定义： https:<span class="comment">//baike.baidu.com/item/%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%B9</span></span><br><span class="line">% 矩阵的迹等于【矩阵的对角线元素之和，也等于矩阵的特征值之和】。</span><br><span class="line">% trace(A):求矩阵A的迹。</span><br><span class="line">% eg： A</span><br><span class="line">A=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>;<span class="number">-3</span>,<span class="number">2</span>,<span class="number">1</span>;<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">b=trace(A)   %矩阵的迹</span><br><span class="line">sum(diag(A)) %对角线元素求和</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 向量和矩阵的范数</span><br><span class="line">% 矩阵或向量的范数用来度量矩阵或向量在某种意义下的长度。</span><br><span class="line">% (<span class="number">1</span>)向量的<span class="number">3</span>种常用范数</span><br><span class="line">% 向量<span class="number">1</span>-范数:向量元素的绝对值之和。</span><br><span class="line">%        ||V||=sum|Vi|</span><br><span class="line">% 向量<span class="number">2</span>-范数:向量元素绝对值的平方和的平方根。</span><br><span class="line"></span><br><span class="line">% 无穷范数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%   在MATLAB中，求向量范数的函数为:</span><br><span class="line">%   norm(V)或norm(V,<span class="number">2</span>): 计算向量V的<span class="number">2</span>一范数。</span><br><span class="line">%   norm(V,<span class="number">1</span>): 计算向量V的<span class="number">1</span>- -范数。</span><br><span class="line">%   norm(V,inf): 计算向量V的∞- -范数。</span><br><span class="line"></span><br><span class="line">%   (<span class="number">2</span>)矩阵的范数</span><br><span class="line">%   从属于<span class="number">3</span>种向量范数，矩阵范数计算公式如下。</span><br><span class="line">%   矩阵A的<span class="number">1</span>-范数:矩阵列元素绝对值之和的最大值。</span><br><span class="line">%   矩阵A的<span class="number">2</span>一范数: A<span class="number">&#x27;</span>A矩阵的最大特征值的平方根。其中λ为A<span class="number">&#x27;</span>A的最大特征值。</span><br><span class="line">%   矩阵A的∞一范数:所有矩阵行元素绝对值之和的最大值。</span><br><span class="line"></span><br><span class="line">% eg</span><br><span class="line">x=[<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>;<span class="number">-3</span>,<span class="number">3</span>,<span class="number">0</span>] %两种赋值方式</span><br><span class="line">x1=[<span class="number">2</span> <span class="number">0</span> <span class="number">1</span>;<span class="number">-1</span> <span class="number">1</span> <span class="number">0</span>;<span class="number">-3</span> <span class="number">3</span> <span class="number">0</span>] %两种赋值方式</span><br><span class="line">format  % 无参数情况下，默认输出形式</span><br><span class="line">n=norm(x)           %矩阵的<span class="number">2</span>范数</span><br><span class="line">n=norm(x,<span class="number">2</span>)  %矩阵的<span class="number">2</span>范数</span><br><span class="line">n=norm(x,<span class="number">1</span>)  %矩阵的<span class="number">1</span>范数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%矩阵的条件数</span><br><span class="line">%矩阵A的条件数等于A的范数与A的逆矩阵的范数的乘积。</span><br><span class="line">%条件数越接近于<span class="number">1</span>,矩阵的性能越好，反之，矩阵的性能越差。（性能好和差是什么东西）</span><br><span class="line">%在MATLAB中，计算矩阵A的<span class="number">3</span>种条件数的函数是:</span><br><span class="line">% cond(A,<span class="number">1</span>): 计算A的<span class="number">1</span>- -范数下的条件数。</span><br><span class="line">% cond(A)或cond(IA,<span class="number">2</span>): 计算A的<span class="number">2</span>一范数下的条件数。</span><br><span class="line">% cond(A,inf): 计算A的∞- -范数下的条件数。</span><br><span class="line"></span><br><span class="line">% eg 求<span class="number">2</span>~<span class="number">10</span>阶希尔伯特矩阵的条件数。</span><br><span class="line"><span class="keyword">for</span> n=<span class="number">1</span>:<span class="number">10</span></span><br><span class="line">    c(n)=cond(hilb(n));</span><br><span class="line">end</span><br><span class="line">format <span class="keyword">long</span></span><br><span class="line">c    % 直接打印输出c向量的值</span><br><span class="line">c<span class="number">&#x27;</span>   % 将c的行向量进行转置便成列向量打印输出</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】"><a href="#【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】" class="headerlink" title="【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】"></a>【矩阵的行列式值】【矩阵的秩】【矩阵的迹】【矩阵的范数】【矩阵的条件数】</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 第二节 矩阵变换</span></span><br><span class="line"><span class="comment">% 矩阵求值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%主要包括</span></span><br><span class="line"><span class="comment">%1、矩阵的行列式值</span></span><br><span class="line"><span class="comment">%2、矩阵的秩</span></span><br><span class="line"><span class="comment">%3、矩阵的迹</span></span><br><span class="line"><span class="comment">%4、矩阵的范数</span></span><br><span class="line"><span class="comment">%5、矩阵的条件数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 方阵行列式</span></span><br><span class="line"><span class="comment">% 把一一个方阵看作一个行列式，并对其按行列式的规则求值，这个</span></span><br><span class="line"><span class="comment">% 值就称为方阵所对应的行列式的值。</span></span><br><span class="line"><span class="comment">% det(A):求方阵A所对应的行列式的值。</span></span><br><span class="line"><span class="comment">% eg 验证 det(A^-1)=1/det(A)</span></span><br><span class="line">A=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>;<span class="number">-3</span>,<span class="number">2</span>,<span class="number">1</span>;<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">format <span class="built_in">rat</span> <span class="comment">%有理数形式输出</span></span><br><span class="line">det(inv(A)) <span class="comment">% A的逆矩阵的行列式</span></span><br><span class="line"><span class="number">1</span>/det(A)  <span class="comment">% 矩阵A的行列式的倒数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 矩阵线性无关的行数或列数称为矩阵的秩。</span></span><br><span class="line"><span class="comment">% ranklA):求矩阵A的秩。</span></span><br><span class="line"><span class="comment">% eg 求3-20阶魔方阵的秩</span></span><br><span class="line"><span class="keyword">for</span> n=<span class="number">3</span>:<span class="number">20</span>                  <span class="comment">%for循环</span></span><br><span class="line">    r(n)=rank(<span class="built_in">magic</span>(n));    <span class="comment">%生成魔方阵，求到的矩阵的秩可以存放在向量 r(n)中</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">bar(r)  <span class="comment">%生成一个条形统计图</span></span><br><span class="line">grid on <span class="comment">%打开网格线</span></span><br><span class="line">axis([<span class="number">2</span>,<span class="number">21</span>,<span class="number">0</span>,<span class="number">20</span>]) <span class="comment">% 设置坐标范围，这里设置的是 x坐标 2-21 y坐标0-20</span></span><br><span class="line"><span class="comment">% axis 函数的两种用法</span></span><br><span class="line"><span class="comment">%axis([xmin xmax ymin ymax])</span></span><br><span class="line"><span class="comment">%axis([xmin xmax ymin ymax zmin zmaxcmin cmax])</span></span><br><span class="line"><span class="comment">% 奇数阶魔方阵秩为n，即奇数阶魔方阵是满秩矩阵。</span></span><br><span class="line"><span class="comment">% 重偶数阶魔方阵秩为n/2+2 ( n是2的倍数，但非4的倍数)。</span></span><br><span class="line"><span class="comment">%双重偶数阶魔方阵秩均为3 ( 阶数是4的倍数),</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 矩阵的迹</span></span><br><span class="line"><span class="comment">% 定义： https://baike.baidu.com/item/%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%B9</span></span><br><span class="line"><span class="comment">% 矩阵的迹等于【矩阵的对角线元素之和，也等于矩阵的特征值之和】。</span></span><br><span class="line"><span class="comment">% trace(A):求矩阵A的迹。</span></span><br><span class="line"><span class="comment">% eg： A</span></span><br><span class="line">A=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>;<span class="number">-3</span>,<span class="number">2</span>,<span class="number">1</span>;<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">b=trace(A)   <span class="comment">%矩阵的迹</span></span><br><span class="line">sum(<span class="built_in">diag</span>(A)) <span class="comment">%对角线元素求和</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 向量和矩阵的范数</span></span><br><span class="line"><span class="comment">% 矩阵或向量的范数用来度量矩阵或向量在某种意义下的长度。</span></span><br><span class="line"><span class="comment">% (1)向量的3种常用范数</span></span><br><span class="line"><span class="comment">% 向量1-范数:向量元素的绝对值之和。</span></span><br><span class="line"><span class="comment">%        ||V||=sum|Vi|</span></span><br><span class="line"><span class="comment">% 向量2-范数:向量元素绝对值的平方和的平方根。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 无穷范数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%   在MATLAB中，求向量范数的函数为:</span></span><br><span class="line"><span class="comment">%   norm(V)或norm(V,2): 计算向量V的2一范数。</span></span><br><span class="line"><span class="comment">%   norm(V,1): 计算向量V的1- -范数。</span></span><br><span class="line"><span class="comment">%   norm(V,inf): 计算向量V的∞- -范数。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%   (2)矩阵的范数</span></span><br><span class="line"><span class="comment">%   从属于3种向量范数，矩阵范数计算公式如下。</span></span><br><span class="line"><span class="comment">%   矩阵A的1-范数:矩阵列元素绝对值之和的最大值。</span></span><br><span class="line"><span class="comment">%   矩阵A的2一范数: A&#x27;A矩阵的最大特征值的平方根。其中λ为A&#x27;A的最大特征值。</span></span><br><span class="line"><span class="comment">%   矩阵A的∞一范数:所有矩阵行元素绝对值之和的最大值。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% eg</span></span><br><span class="line">x=[<span class="number">2</span>,<span class="number">0</span>,<span class="number">1</span>;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>;<span class="number">-3</span>,<span class="number">3</span>,<span class="number">0</span>] <span class="comment">%两种赋值方式</span></span><br><span class="line">x1=[<span class="number">2</span> <span class="number">0</span> <span class="number">1</span>;<span class="number">-1</span> <span class="number">1</span> <span class="number">0</span>;<span class="number">-3</span> <span class="number">3</span> <span class="number">0</span>] <span class="comment">%两种赋值方式</span></span><br><span class="line">format  <span class="comment">% 无参数情况下，默认输出形式</span></span><br><span class="line">n=norm(x)           <span class="comment">%矩阵的2范数</span></span><br><span class="line">n=norm(x,<span class="number">2</span>)  <span class="comment">%矩阵的2范数</span></span><br><span class="line">n=norm(x,<span class="number">1</span>)  <span class="comment">%矩阵的1范数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%矩阵的条件数</span></span><br><span class="line"><span class="comment">%矩阵A的条件数等于A的范数与A的逆矩阵的范数的乘积。</span></span><br><span class="line"><span class="comment">%条件数越接近于1,矩阵的性能越好，反之，矩阵的性能越差。（性能好和差是什么东西）</span></span><br><span class="line"><span class="comment">%在MATLAB中，计算矩阵A的3种条件数的函数是:</span></span><br><span class="line"><span class="comment">% cond(A,1): 计算A的1- -范数下的条件数。</span></span><br><span class="line"><span class="comment">% cond(A)或cond(IA,2): 计算A的2一范数下的条件数。</span></span><br><span class="line"><span class="comment">% cond(A,inf): 计算A的∞- -范数下的条件数。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% eg 求2~10阶希尔伯特矩阵的条件数。</span></span><br><span class="line"><span class="keyword">for</span> n=<span class="number">1</span>:<span class="number">10</span></span><br><span class="line">    c(n)=cond(<span class="built_in">hilb</span>(n));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">format long</span><br><span class="line">c    <span class="comment">% 直接打印输出c向量的值</span></span><br><span class="line">c&#x27;   <span class="comment">% 将c的行向量进行转置便成列向量打印输出</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 	
 		</div>
 		
@@ -322,7 +323,7 @@
 			</a>
 		
 		
-			<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量" rel="next">
+			<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -398,7 +399,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 矩阵基本操作
-【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】【改变矩阵的形状】12345678910111213141516171819202122232425262728293031323334...
 							</p>
 						</div>
 
@@ -406,29 +407,6 @@
 							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
-								matlab 矩阵基本运算			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵基本运算
-【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -444,7 +422,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 字符串处理和字符型数据
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
@@ -452,6 +430,29 @@
 							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】【逆矩阵】123456789101112131415161718192021222324252627282930313233343536373839404...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -467,7 +468,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
-【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】12345678910111213141516171819202122232425262728293...
+【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】12345678910111213141...
 							</p>
 						</div>
 
@@ -504,29 +505,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
-								矩阵的特征值与特征向量			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵的特征值与特征向量
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
 								稀疏矩阵			
 							</a>
@@ -544,6 +522,29 @@
 							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
 							</a>
 						</div>
 					</li>												

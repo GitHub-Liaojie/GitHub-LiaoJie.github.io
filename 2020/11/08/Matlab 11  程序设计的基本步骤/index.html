@@ -272,7 +272,7 @@
 
 	<a href="/2020/11/08/Matlab%2011%20%20%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4/" itemprop="url">
 		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-19
+	  		2020-11-20
 	  </time>
 	</a> 
 
@@ -298,7 +298,7 @@
 
 		<div class="article-content" id="article-content">
 			<h1 id="matlab-程序设计的基本步骤"><a href="#matlab-程序设计的基本步骤" class="headerlink" title="matlab 程序设计的基本步骤"></a>matlab 程序设计的基本步骤</h1><p><img src="/img/blog_img/matlab/test.png"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 第三节 程序流程控制</span><br><span class="line">% <span class="number">01</span>-顺序结构顺序</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%程序设计的基本步骤:</span><br><span class="line">%<span class="number">1</span>、分析问题，确定求解问题的数学模型或方法</span><br><span class="line">%<span class="number">2</span>、设计算法，并画出流程图</span><br><span class="line">%<span class="number">3</span>、选择编程工具，根据算法编写程序</span><br><span class="line">%<span class="number">4</span>、调试程序，分析程序输出结果</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% matlab文件分类</span><br><span class="line">% 脚本文件 函数文件</span><br><span class="line">% 脚本文件：是可以在命令行窗口直接执行的文件，也叫命令文件。</span><br><span class="line">% 函数文件：是定义一个函数，不能直接执行，而必须以函数调用的方式来调用它。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 文件创建方式</span><br><span class="line">% <span class="number">1</span>、matlab 新建文件</span><br><span class="line">% <span class="number">2</span>、  命令行 edit  xxx  使用edit命令行在当前文件夹下创建文件</span><br><span class="line"></span><br><span class="line">% eg 建立脚本文件f1.m (本次创建文件名以 learn3_12进行测试)</span><br><span class="line">F=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">G=[<span class="number">1</span>,<span class="number">2</span>;<span class="number">3</span>,<span class="number">4</span>;<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">H=F*G</span><br><span class="line">% 在命令行 输入 learn3_12 即可直接运行</span><br><span class="line"></span><br><span class="line">%建立函数文件 f2.m</span><br><span class="line">% function C=f2(A,B)</span><br><span class="line">% C=A*B</span><br><span class="line">% 在【命令行】依次输入</span><br><span class="line">% A=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">% B=[<span class="number">1</span>,<span class="number">2</span>;<span class="number">3</span>,<span class="number">4</span>;<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">% C=f2(A,B)</span><br><span class="line"></span><br><span class="line">%   顺序结构</span><br><span class="line">%  代码顺序执行 和C语言几乎是一致的理念</span><br><span class="line">% eg</span><br><span class="line">% 数据的输入 input</span><br><span class="line">%D=input(&#x27;请输入变量A的值:  &#x27;) %通过键盘进行输入获取A的值(注：输入的是数字，其他的不可以)</span><br><span class="line">% 数据的输出 disp</span><br><span class="line">s=&#x27;hello world &#x27;;</span><br><span class="line">disp(s)</span><br><span class="line">% 程序的暂停 pause(延迟秒数)  类似于 stm32 的 delay(ms)函数 </span><br><span class="line">% 注： pause 中可以不传入参数，这样的只需要按下任意键即可继续运行</span><br><span class="line">% ctrl+C  强行中止程序</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% eg 有一-线段AB，A的坐标为(<span class="number">1</span>，<span class="number">1</span>)， B的坐标为(<span class="number">4.5</span>，<span class="number">4.5</span>), 求AB的长度，以及黄金分割点C的坐标。</span><br><span class="line">A=<span class="number">1</span>+i       % A 点坐标</span><br><span class="line">B=<span class="number">4.5</span>+<span class="number">4.5</span>i  % B点坐标</span><br><span class="line">% <span class="number">12</span>:<span class="number">10</span></span><br><span class="line">% 黄金分割点 <span class="number">0.618</span></span><br><span class="line">% </span><br><span class="line">c=A+<span class="number">0.618</span>*(B-A); %  A点的坐标 加上<span class="number">0.618</span>倍（B-A）的数据</span><br><span class="line">length=<span class="built_in">abs</span>(B-A); %  A B 两点间的长度  </span><br><span class="line">disp(length)     %  A B 的长度     </span><br><span class="line">disp(c)          %  黄金分割点的坐标</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 第三节 程序流程控制</span></span><br><span class="line"><span class="comment">% 01-顺序结构顺序</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%程序设计的基本步骤:</span></span><br><span class="line"><span class="comment">%1、分析问题，确定求解问题的数学模型或方法</span></span><br><span class="line"><span class="comment">%2、设计算法，并画出流程图</span></span><br><span class="line"><span class="comment">%3、选择编程工具，根据算法编写程序</span></span><br><span class="line"><span class="comment">%4、调试程序，分析程序输出结果</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% matlab文件分类</span></span><br><span class="line"><span class="comment">% 脚本文件 函数文件</span></span><br><span class="line"><span class="comment">% 脚本文件：是可以在命令行窗口直接执行的文件，也叫命令文件。</span></span><br><span class="line"><span class="comment">% 函数文件：是定义一个函数，不能直接执行，而必须以函数调用的方式来调用它。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 文件创建方式</span></span><br><span class="line"><span class="comment">% 1、matlab 新建文件</span></span><br><span class="line"><span class="comment">% 2、  命令行 edit  xxx  使用edit命令行在当前文件夹下创建文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% eg 建立脚本文件f1.m (本次创建文件名以 learn3_12进行测试)</span></span><br><span class="line">F=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">G=[<span class="number">1</span>,<span class="number">2</span>;<span class="number">3</span>,<span class="number">4</span>;<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">H=F*G</span><br><span class="line"><span class="comment">% 在命令行 输入 learn3_12 即可直接运行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%建立函数文件 f2.m</span></span><br><span class="line"><span class="comment">% function C=f2(A,B)</span></span><br><span class="line"><span class="comment">% C=A*B</span></span><br><span class="line"><span class="comment">% 在【命令行】依次输入</span></span><br><span class="line"><span class="comment">% A=[1,2,3;4,5,6];</span></span><br><span class="line"><span class="comment">% B=[1,2;3,4;5,6];</span></span><br><span class="line"><span class="comment">% C=f2(A,B)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%   顺序结构</span></span><br><span class="line"><span class="comment">%  代码顺序执行 和C语言几乎是一致的理念</span></span><br><span class="line"><span class="comment">% eg</span></span><br><span class="line"><span class="comment">% 数据的输入 input</span></span><br><span class="line"><span class="comment">%D=input(&#x27;请输入变量A的值:  &#x27;) %通过键盘进行输入获取A的值(注：输入的是数字，其他的不可以)</span></span><br><span class="line"><span class="comment">% 数据的输出 disp</span></span><br><span class="line">s=<span class="string">&#x27;hello world &#x27;</span>;</span><br><span class="line"><span class="built_in">disp</span>(s)</span><br><span class="line"><span class="comment">% 程序的暂停 pause(延迟秒数)  类似于 stm32 的 delay(ms)函数 </span></span><br><span class="line"><span class="comment">% 注： pause 中可以不传入参数，这样的只需要按下任意键即可继续运行</span></span><br><span class="line"><span class="comment">% ctrl+C  强行中止程序</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% eg 有一-线段AB，A的坐标为(1，1)， B的坐标为(4.5，4.5), 求AB的长度，以及黄金分割点C的坐标。</span></span><br><span class="line">A=<span class="number">1</span>+<span class="built_in">i</span>       <span class="comment">% A 点坐标</span></span><br><span class="line">B=<span class="number">4.5</span>+<span class="number">4.5</span><span class="built_in">i</span>  <span class="comment">% B点坐标</span></span><br><span class="line"><span class="comment">% 12:10</span></span><br><span class="line"><span class="comment">% 黄金分割点 0.618</span></span><br><span class="line"><span class="comment">% </span></span><br><span class="line">c=A+<span class="number">0.618</span>*(B-A); <span class="comment">%  A点的坐标 加上0.618倍（B-A）的数据</span></span><br><span class="line"><span class="built_in">length</span>=<span class="built_in">abs</span>(B-A); <span class="comment">%  A B 两点间的长度  </span></span><br><span class="line"><span class="built_in">disp</span>(<span class="built_in">length</span>)     <span class="comment">%  A B 的长度     </span></span><br><span class="line"><span class="built_in">disp</span>(c)          <span class="comment">%  黄金分割点的坐标</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 	
 		</div>
 		
@@ -317,7 +317,7 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵" rel="prev">
+			<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量" rel="prev">
 				&laquo;Pre post
 			</a>
 		
@@ -398,7 +398,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 矩阵基本操作
-【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】【改变矩阵的形状】12345678910111213141516171819202122232425262728293031323334...
 							</p>
 						</div>
 
@@ -406,29 +406,6 @@
 							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
-								matlab 矩阵基本运算			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵基本运算
-【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -444,7 +421,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 字符串处理和字符型数据
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
@@ -452,6 +429,29 @@
 							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】【逆矩阵】123456789101112131415161718192021222324252627282930313233343536373839404...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -467,7 +467,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
-【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】12345678910111213141516171819202122232425262728293...
+【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】12345678910111213141...
 							</p>
 						</div>
 
@@ -527,29 +527,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
-								矩阵的特征值与特征向量			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵的特征值与特征向量
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
 								稀疏矩阵			
 							</a>
@@ -567,6 +544,29 @@
 							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
 							</a>
 						</div>
 					</li>												

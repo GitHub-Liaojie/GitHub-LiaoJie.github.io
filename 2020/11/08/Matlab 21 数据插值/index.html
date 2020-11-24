@@ -272,7 +272,7 @@
 
 	<a href="/2020/11/08/Matlab%2021%20%E6%95%B0%E6%8D%AE%E6%8F%92%E5%80%BC/" itemprop="url">
 		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-19
+	  		2020-11-20
 	  </time>
 	</a> 
 
@@ -298,7 +298,7 @@
 
 		<div class="article-content" id="article-content">
 			<h1 id="matlab-数据插值"><a href="#matlab-数据插值" class="headerlink" title="matlab 数据插值"></a>matlab 数据插值</h1><p><img src="/img/blog_img/matlab/test.png"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 第四节-matlab 绘图和数据可视化</span><br><span class="line">% <span class="number">02</span>-多项式计算</span><br><span class="line">% 数据插值</span><br><span class="line"></span><br><span class="line">% 用于测试数据来添加额外的数据进行插值</span><br><span class="line">% 在后面可以得到更加平滑的曲面</span><br><span class="line">% 函数 ibterp1()</span><br><span class="line">% interp1():-维插值函数。</span><br><span class="line">% 调用格式: Y1=interp1(X,Y,X1,method)</span><br><span class="line">% 根据X、Y的值，计算函数在X1处的值。其中，X、Y是两个等长的E知向量，分别表示采样点</span><br><span class="line">% 和采样值。X1是一个向量或标量，表示要插值的点。</span><br><span class="line">% method :</span><br><span class="line">%   <span class="number">1</span>、linear:线性插值，默认方法。将与插值点靠近的两个数据点用直线</span><br><span class="line">% 连接，然后在直线上选取对应插值点的数据。</span><br><span class="line">%   <span class="number">2</span>、nearest: 最近点插值。选择最近样本点的值作为插值数据。</span><br><span class="line">%   <span class="number">3</span>、pchip:分段<span class="number">3</span>次埃尔米特插值。采用分段三次多项式，除满足插值</span><br><span class="line">% 条件，还需满足在若干节点处相邻段插值函数的一-阶导数相等，使</span><br><span class="line">% 得曲线光滑的同时，还具有保形性。</span><br><span class="line">%   <span class="number">4</span>、spline: <span class="number">3</span>次样条插值。每个分段内构造一个三次多项式， 使其插值</span><br><span class="line">% 函数除满足插值条件外，还要求在各节点处具有连续的- -阶和二_阶导数。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 为什么这两种插值方法都用<span class="number">3</span>次多项式而不用更高次的?</span><br><span class="line">% 答：多项式次数并非越高越好。次数越高，越容易产生震荡</span><br><span class="line">% 而偏离原函数，这种现象称为龙格( Runge )现象。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 已知 x,y ,加入插值，得到x1，y1 ，绘制plot（x1,y1）</span><br><span class="line">x=[<span class="number">0</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br><span class="line">y=[<span class="number">0</span>,<span class="number">1.2</span>,<span class="number">1.7</span>,<span class="number">2.0</span>,<span class="number">2.1</span>,<span class="number">2.0</span>,<span class="number">1.8</span>,<span class="number">1.2</span>,<span class="number">1.0</span>,<span class="number">1.6</span>]</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">plot(x,y)</span><br><span class="line">title(&#x27;加入插值前图形&#x27;) %有凹凸感，不够细腻</span><br><span class="line">x1=[<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">15</span>];</span><br><span class="line">y1=interp1(x,y,x1,&#x27;spline&#x27;); %添加插值函数，求得y1，注：采样的是 3次样条插值</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">plot(x1,y1)</span><br><span class="line">title(&#x27;加入插值后的图形&#x27;) %曲线较为平滑</span><br><span class="line"></span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line">plot(x1,y1)     % 绘制 y1=interp1(x,y,x1,&#x27;spline&#x27;) 3次样条插值函数的值</span><br><span class="line">title(&#x27;spline方式图形&#x27;) %曲线较为平滑</span><br><span class="line">%</span><br><span class="line">y2=interp1(x,y,x1,&#x27;liner&#x27;); %添加插值函数，求得y1，注：采用线性插值</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">plot(x1,y2)     % 绘制 y1=interp1(x,y,x1,&#x27;liner&#x27;) 3次样条插值函数的值</span><br><span class="line">title(&#x27;liner方式 插值后的图形&#x27;) %曲线较为平滑</span><br><span class="line">%</span><br><span class="line">y3=interp1(x,y,x1,&#x27;nearest&#x27;);     %添加插值函数，求得y1，注：采用线性插值</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">plot(x1,y3)                     % 绘制 y1=interp1(x,y,x1,&#x27;nearest&#x27;) 3次样条插值函数的值</span><br><span class="line">title(&#x27;nearest方式 插值后的图形&#x27;) %曲线较为平滑</span><br><span class="line">%</span><br><span class="line">y4=interp1(x,y,x1,&#x27;spline&#x27;);     %添加插值函数，求得y1，注：采用线性插值</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line">plot(x1,y4)                     % 绘制 y1=interp1(x,y,x1,&#x27;nearest&#x27;) 3次样条插值函数的值</span><br><span class="line">title(&#x27;spline方式 插值后的图形&#x27;) %曲线较为平滑</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%   四种方法的比较:</span><br><span class="line">%   线性插值和最近点插值方法比较简单。</span><br><span class="line">%   其中线性插值方法的计算量与样本点n无关。n越大，误差越小。</span><br><span class="line">%   <span class="number">3</span>次埃尔米特插值和<span class="number">3</span>次样条插值都能保证曲线的光滑性。</span><br><span class="line">%   相比较而言, <span class="number">3</span>次埃尔米特插值具有保形性;</span><br><span class="line">%   而<span class="number">3</span>次样条插值要求其二阶导数也连续，所以插值函数的性态更好。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% interp2(): <span class="number">2</span>维插值函数</span><br><span class="line">% 调用格式:</span><br><span class="line">% Z1=interp2(X,Y,Z,X1,Yl,method)</span><br><span class="line">% 其中，X、Y是两个向量，表示两个参数的采样点, Z是</span><br><span class="line">% 采样点对应的函数值。X1、 Y1是两个标量或向量，表示要插值的点。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% eg：在某粮情自动测控系统中，根据粮温、粮湿计算平衡点湿度,与大气湿度进行</span><br><span class="line">% 比较，再根据通风模拟情况决定是否自动进行通风。已测得平衡点湿度与粮温、</span><br><span class="line">% 粮湿关系的部分数据如下表，请推算相应范围内温度每变化<span class="number">1</span>度、湿度每变化<span class="number">1</span>个</span><br><span class="line">% 点的平衡点湿度。</span><br><span class="line"></span><br><span class="line">x5=<span class="number">20</span>:<span class="number">10</span>:<span class="number">90</span> %表示湿度度 ，每次采样湿度间隔<span class="number">10</span></span><br><span class="line">y5=(0:5:20)&#x27;    %注：有一个【&#x27;】冒号，表示转置，这里表示他是一个列向量</span><br><span class="line">                %物理含义是表示的，是温度变化，每次变化 <span class="number">5</span>度</span><br><span class="line">z5=[<span class="number">8.9</span>,    <span class="number">10.32</span>,  <span class="number">11.3</span>,   <span class="number">12.5</span>,   <span class="number">13.9</span>,   <span class="number">15.3</span>,   <span class="number">17.8</span>,   <span class="number">21.3</span>;</span><br><span class="line">    <span class="number">8.7</span>,    <span class="number">10.8</span>,   <span class="number">11</span>,     <span class="number">12.1</span>,   <span class="number">13.2</span>,   <span class="number">14.8</span>,   <span class="number">16.55</span>,  <span class="number">20.8</span>;</span><br><span class="line">    <span class="number">8.3</span>,    <span class="number">9.65</span>,   <span class="number">10.88</span>,  <span class="number">12.4</span>,   <span class="number">13.2</span>,   <span class="number">14.6</span>,   <span class="number">16.4</span>,   <span class="number">20.5</span>;</span><br><span class="line">    <span class="number">8.1</span>,    <span class="number">9.4</span>,    <span class="number">10.7</span>,   <span class="number">11.9</span>,   <span class="number">13.1</span>,   <span class="number">14.5</span>,   <span class="number">16.2</span>,   <span class="number">20.3</span>;</span><br><span class="line">    <span class="number">8.1</span>,    <span class="number">9.2</span>,    <span class="number">10.8</span>,   <span class="number">12</span>,     <span class="number">13.2</span>,   <span class="number">14.8</span>,   <span class="number">16.9</span>,   <span class="number">20.9</span>];</span><br><span class="line"></span><br><span class="line">xi=<span class="number">20</span>:<span class="number">90</span>; %要添加的插值 【注：行向量】</span><br><span class="line">yi=(0:20)&#x27;; %要添加的插值 【注：列向量】</span><br><span class="line">zi=interp2(x5,y5,z5,xi,yi)  %二维插值函数</span><br><span class="line">figure(<span class="number">4</span>)</span><br><span class="line">surf(xi,yi,zi)      %二维插值函数后得到的图形</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 第四节-matlab 绘图和数据可视化</span></span><br><span class="line"><span class="comment">% 02-多项式计算</span></span><br><span class="line"><span class="comment">% 数据插值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 用于测试数据来添加额外的数据进行插值</span></span><br><span class="line"><span class="comment">% 在后面可以得到更加平滑的曲面</span></span><br><span class="line"><span class="comment">% 函数 ibterp1()</span></span><br><span class="line"><span class="comment">% interp1():-维插值函数。</span></span><br><span class="line"><span class="comment">% 调用格式: Y1=interp1(X,Y,X1,method)</span></span><br><span class="line"><span class="comment">% 根据X、Y的值，计算函数在X1处的值。其中，X、Y是两个等长的E知向量，分别表示采样点</span></span><br><span class="line"><span class="comment">% 和采样值。X1是一个向量或标量，表示要插值的点。</span></span><br><span class="line"><span class="comment">% method :</span></span><br><span class="line"><span class="comment">%   1、linear:线性插值，默认方法。将与插值点靠近的两个数据点用直线</span></span><br><span class="line"><span class="comment">% 连接，然后在直线上选取对应插值点的数据。</span></span><br><span class="line"><span class="comment">%   2、nearest: 最近点插值。选择最近样本点的值作为插值数据。</span></span><br><span class="line"><span class="comment">%   3、pchip:分段3次埃尔米特插值。采用分段三次多项式，除满足插值</span></span><br><span class="line"><span class="comment">% 条件，还需满足在若干节点处相邻段插值函数的一-阶导数相等，使</span></span><br><span class="line"><span class="comment">% 得曲线光滑的同时，还具有保形性。</span></span><br><span class="line"><span class="comment">%   4、spline: 3次样条插值。每个分段内构造一个三次多项式， 使其插值</span></span><br><span class="line"><span class="comment">% 函数除满足插值条件外，还要求在各节点处具有连续的- -阶和二_阶导数。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 为什么这两种插值方法都用3次多项式而不用更高次的?</span></span><br><span class="line"><span class="comment">% 答：多项式次数并非越高越好。次数越高，越容易产生震荡</span></span><br><span class="line"><span class="comment">% 而偏离原函数，这种现象称为龙格( Runge )现象。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 已知 x,y ,加入插值，得到x1，y1 ，绘制plot（x1,y1）</span></span><br><span class="line">x=[<span class="number">0</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>]</span><br><span class="line">y=[<span class="number">0</span>,<span class="number">1.2</span>,<span class="number">1.7</span>,<span class="number">2.0</span>,<span class="number">2.1</span>,<span class="number">2.0</span>,<span class="number">1.8</span>,<span class="number">1.2</span>,<span class="number">1.0</span>,<span class="number">1.6</span>]</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(x,y)</span><br><span class="line">title(<span class="string">&#x27;加入插值前图形&#x27;</span>) <span class="comment">%有凹凸感，不够细腻</span></span><br><span class="line">x1=[<span class="number">0</span>:<span class="number">0.1</span>:<span class="number">15</span>];</span><br><span class="line">y1=interp1(x,y,x1,<span class="string">&#x27;spline&#x27;</span>); <span class="comment">%添加插值函数，求得y1，注：采样的是 3次样条插值</span></span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(x1,y1)</span><br><span class="line">title(<span class="string">&#x27;加入插值后的图形&#x27;</span>) <span class="comment">%曲线较为平滑</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(x1,y1)     <span class="comment">% 绘制 y1=interp1(x,y,x1,&#x27;spline&#x27;) 3次样条插值函数的值</span></span><br><span class="line">title(<span class="string">&#x27;spline方式图形&#x27;</span>) <span class="comment">%曲线较为平滑</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line">y2=interp1(x,y,x1,<span class="string">&#x27;liner&#x27;</span>); <span class="comment">%添加插值函数，求得y1，注：采用线性插值</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(x1,y2)     <span class="comment">% 绘制 y1=interp1(x,y,x1,&#x27;liner&#x27;) 3次样条插值函数的值</span></span><br><span class="line">title(<span class="string">&#x27;liner方式 插值后的图形&#x27;</span>) <span class="comment">%曲线较为平滑</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line">y3=interp1(x,y,x1,<span class="string">&#x27;nearest&#x27;</span>);     <span class="comment">%添加插值函数，求得y1，注：采用线性插值</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="built_in">plot</span>(x1,y3)                     <span class="comment">% 绘制 y1=interp1(x,y,x1,&#x27;nearest&#x27;) 3次样条插值函数的值</span></span><br><span class="line">title(<span class="string">&#x27;nearest方式 插值后的图形&#x27;</span>) <span class="comment">%曲线较为平滑</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line">y4=interp1(x,y,x1,<span class="string">&#x27;spline&#x27;</span>);     <span class="comment">%添加插值函数，求得y1，注：采用线性插值</span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>)</span><br><span class="line"><span class="built_in">plot</span>(x1,y4)                     <span class="comment">% 绘制 y1=interp1(x,y,x1,&#x27;nearest&#x27;) 3次样条插值函数的值</span></span><br><span class="line">title(<span class="string">&#x27;spline方式 插值后的图形&#x27;</span>) <span class="comment">%曲线较为平滑</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%   四种方法的比较:</span></span><br><span class="line"><span class="comment">%   线性插值和最近点插值方法比较简单。</span></span><br><span class="line"><span class="comment">%   其中线性插值方法的计算量与样本点n无关。n越大，误差越小。</span></span><br><span class="line"><span class="comment">%   3次埃尔米特插值和3次样条插值都能保证曲线的光滑性。</span></span><br><span class="line"><span class="comment">%   相比较而言, 3次埃尔米特插值具有保形性;</span></span><br><span class="line"><span class="comment">%   而3次样条插值要求其二阶导数也连续，所以插值函数的性态更好。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% interp2(): 2维插值函数</span></span><br><span class="line"><span class="comment">% 调用格式:</span></span><br><span class="line"><span class="comment">% Z1=interp2(X,Y,Z,X1,Yl,method)</span></span><br><span class="line"><span class="comment">% 其中，X、Y是两个向量，表示两个参数的采样点, Z是</span></span><br><span class="line"><span class="comment">% 采样点对应的函数值。X1、 Y1是两个标量或向量，表示要插值的点。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% eg：在某粮情自动测控系统中，根据粮温、粮湿计算平衡点湿度,与大气湿度进行</span></span><br><span class="line"><span class="comment">% 比较，再根据通风模拟情况决定是否自动进行通风。已测得平衡点湿度与粮温、</span></span><br><span class="line"><span class="comment">% 粮湿关系的部分数据如下表，请推算相应范围内温度每变化1度、湿度每变化1个</span></span><br><span class="line"><span class="comment">% 点的平衡点湿度。</span></span><br><span class="line"></span><br><span class="line">x5=<span class="number">20</span>:<span class="number">10</span>:<span class="number">90</span> <span class="comment">%表示湿度度 ，每次采样湿度间隔10</span></span><br><span class="line">y5=(<span class="number">0</span>:<span class="number">5</span>:<span class="number">20</span>)&#x27;    <span class="comment">%注：有一个【&#x27;】冒号，表示转置，这里表示他是一个列向量</span></span><br><span class="line">                <span class="comment">%物理含义是表示的，是温度变化，每次变化 5度</span></span><br><span class="line">z5=[<span class="number">8.9</span>,    <span class="number">10.32</span>,  <span class="number">11.3</span>,   <span class="number">12.5</span>,   <span class="number">13.9</span>,   <span class="number">15.3</span>,   <span class="number">17.8</span>,   <span class="number">21.3</span>;</span><br><span class="line">    <span class="number">8.7</span>,    <span class="number">10.8</span>,   <span class="number">11</span>,     <span class="number">12.1</span>,   <span class="number">13.2</span>,   <span class="number">14.8</span>,   <span class="number">16.55</span>,  <span class="number">20.8</span>;</span><br><span class="line">    <span class="number">8.3</span>,    <span class="number">9.65</span>,   <span class="number">10.88</span>,  <span class="number">12.4</span>,   <span class="number">13.2</span>,   <span class="number">14.6</span>,   <span class="number">16.4</span>,   <span class="number">20.5</span>;</span><br><span class="line">    <span class="number">8.1</span>,    <span class="number">9.4</span>,    <span class="number">10.7</span>,   <span class="number">11.9</span>,   <span class="number">13.1</span>,   <span class="number">14.5</span>,   <span class="number">16.2</span>,   <span class="number">20.3</span>;</span><br><span class="line">    <span class="number">8.1</span>,    <span class="number">9.2</span>,    <span class="number">10.8</span>,   <span class="number">12</span>,     <span class="number">13.2</span>,   <span class="number">14.8</span>,   <span class="number">16.9</span>,   <span class="number">20.9</span>];</span><br><span class="line"></span><br><span class="line">xi=<span class="number">20</span>:<span class="number">90</span>; <span class="comment">%要添加的插值 【注：行向量】</span></span><br><span class="line">yi=(<span class="number">0</span>:<span class="number">20</span>)&#x27;; <span class="comment">%要添加的插值 【注：列向量】</span></span><br><span class="line">zi=interp2(x5,y5,z5,xi,yi)  <span class="comment">%二维插值函数</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">4</span>)</span><br><span class="line">surf(xi,yi,zi)      <span class="comment">%二维插值函数后得到的图形</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 		</div>
@@ -399,7 +399,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 矩阵基本操作
-【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】【改变矩阵的形状】12345678910111213141516171819202122232425262728293031323334...
 							</p>
 						</div>
 
@@ -407,29 +407,6 @@
 							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
-								matlab 矩阵基本运算			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵基本运算
-【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -445,7 +422,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 字符串处理和字符型数据
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
@@ -453,6 +430,29 @@
 							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】【逆矩阵】123456789101112131415161718192021222324252627282930313233343536373839404...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -468,7 +468,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
-【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】12345678910111213141516171819202122232425262728293...
+【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】12345678910111213141...
 							</p>
 						</div>
 
@@ -528,29 +528,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
-								矩阵的特征值与特征向量			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵的特征值与特征向量
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
 								稀疏矩阵			
 							</a>
@@ -568,6 +545,29 @@
 							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
 							</a>
 						</div>
 					</li>												

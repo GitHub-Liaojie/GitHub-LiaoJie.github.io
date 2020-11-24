@@ -272,7 +272,7 @@
 
 	<a href="/2020/11/08/Matlab%2013%20%20%E4%BA%8C%E7%BB%B4%E6%9B%B2%E7%BA%BF%E7%9A%84%E7%BB%98%E5%88%B6/" itemprop="url">
 		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-19
+	  		2020-11-20
 	  </time>
 	</a> 
 
@@ -298,7 +298,7 @@
 
 		<div class="article-content" id="article-content">
 			<h1 id="matlab-二维曲线的绘制"><a href="#matlab-二维曲线的绘制" class="headerlink" title="matlab 二维曲线的绘制"></a>matlab 二维曲线的绘制</h1><p><img src="/img/blog_img/matlab/test.png"></p>
-<h2 id="【plot-函数的使用】-【含选项参数的plot函数】"><a href="#【plot-函数的使用】-【含选项参数的plot函数】" class="headerlink" title="【plot 函数的使用】 【含选项参数的plot函数】"></a>【plot 函数的使用】 【含选项参数的plot函数】</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 第四节-matlab 绘图和数据可视化</span><br><span class="line">% <span class="number">01</span>-二维曲线</span><br><span class="line"></span><br><span class="line">% 画图函数</span><br><span class="line">% <span class="number">1</span>、plot 函数</span><br><span class="line">% plot函数的基本用法</span><br><span class="line">% plot(x, y)</span><br><span class="line">% 其中，x和y分别用于存储x坐标和y坐标数据。</span><br><span class="line">% 注 ： x和y 是 的向量长度是相等的</span><br><span class="line">% eg 绘制折线</span><br><span class="line">x=[<span class="number">2.5</span>,<span class="number">3.5</span>,<span class="number">4</span>,<span class="number">5</span>]     % 设置x的横坐标</span><br><span class="line">y=[<span class="number">1.5</span>,<span class="number">2.0</span>,<span class="number">1</span>,<span class="number">1.5</span>]   % 设置y的纵坐标</span><br><span class="line">plot(x,y)           % 绘制曲线</span><br><span class="line"></span><br><span class="line">% <span class="number">2</span>、最简单的plot 调用格式</span><br><span class="line">% plot(x)   %当x是实向量时，该向量下标的元素为横坐标，元素的值为坐标绘制的一条曲线</span><br><span class="line">% </span><br><span class="line">% 当plot函数的参数x是复数向量时，则分别以该向量元素实部和</span><br><span class="line">% 虚部为横、纵坐标绘制出一条曲线。</span><br><span class="line">x</span><br><span class="line">y</span><br><span class="line">cx=x+y*i</span><br><span class="line">plot(cx)</span><br><span class="line"></span><br><span class="line">% <span class="number">3</span>、plot 函数和矩阵的变化形式</span><br><span class="line">% 当 x 是向量 ，y 是矩阵时</span><br><span class="line">% 如果矩阵y的列数等于x的长度，则以向量x为横坐标，以y的每个</span><br><span class="line">% 行向量为纵坐标绘制曲线，曲线的条数等于y的行数。</span><br><span class="line">% 如果矩阵y的行数等于x的长度，则以向量x为横坐标，以y的每个</span><br><span class="line">% 列向量为纵坐标绘制曲线，曲线的条数等于y的列数。</span><br><span class="line"></span><br><span class="line">% 例<span class="number">2</span>绘制sinx、<span class="built_in">sin</span>(<span class="number">2</span>x)、 <span class="built_in">sin</span>(x/<span class="number">2</span> )的函数曲线。</span><br><span class="line">x1=linspace(<span class="number">0</span>,<span class="number">2</span>*pi,<span class="number">100</span>)</span><br><span class="line">y1=[<span class="built_in">sin</span>(x1);<span class="built_in">sin</span>(<span class="number">2</span>*x1);<span class="built_in">sin</span>(<span class="number">0.5</span>*x1)] % 生成一个和x1列数相同的 <span class="number">3</span>行的矩阵</span><br><span class="line">plot(x1,y1)  % x1是一行的矩阵 ，y1 是一行的矩阵，最终计算得到的绘制了一个<span class="number">3</span>条的<span class="built_in">sin</span>曲线</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% <span class="number">4</span>、含多个输入参数的plot 函数</span><br><span class="line">% eg 采样不同个数的数据点绘制正弦函数曲线，观察曲线形态</span><br><span class="line">t1=linspace(<span class="number">0</span>,<span class="number">2</span>*pi,<span class="number">10</span>);  % t1 设置了 等间距的<span class="number">10</span>个点 ，起始点为 <span class="number">0</span> ，终止点为 <span class="number">2</span>Π</span><br><span class="line">t2=linspace(<span class="number">0</span>,<span class="number">2</span>*pi,<span class="number">20</span>) ; % t2 设置了 等间距的<span class="number">20</span>个点 ，起始点为 <span class="number">0</span> ，终止点为 <span class="number">2</span>Π</span><br><span class="line">t3=linspace(<span class="number">0</span>,<span class="number">2</span>*pi,<span class="number">100</span>); % t3 设置了 等间距的<span class="number">100</span>个点 ，起始点为 <span class="number">0</span> ，终止点为 <span class="number">2</span>Π</span><br><span class="line">plot(t1,sin(t1) ,t2,sin(t2)+2,t3,sin(t3)+3) %绘制了3条曲线 t1 sin(t1) t2 sin(t2)  t3 sin(t3) 分别依次对应绘制曲线</span><br><span class="line"></span><br><span class="line">% <span class="number">5</span>、 含选项的plot函数</span><br><span class="line">% plot（x,y,选项）</span><br><span class="line">% 选项：</span><br><span class="line">% 线形：【_】实线 【：】虚线 【_.】点画线 【__】 双画线 默认使用实现</span><br><span class="line">% 颜色： 【r】红色 【g】绿色 【b】 蓝色 【w】白色 【k】 黑色 等其他颜色，省略颜色选项是，自动循环使用颜色</span><br><span class="line">% 数据点标记：常用标记点 【*】星号 【o】圆圈 【s】方块 【p】五角星 【^】 朝上三角符号，默认无标记符号</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 例<span class="number">4</span>用不同线型和颜色在同一坐标内绘制曲线y=<span class="number">2</span>e^<span class="number">0.5</span>x * <span class="built_in">sin</span>(<span class="number">2</span>πx)及其包络线。</span><br><span class="line">t4=(0:pi/50:2*pi)&#x27;; %生成x 的坐标，0-2Π,每次步长了 pi/50 注; 后面有个【&#x27;】单引号；变成了一个列向量</span><br><span class="line">y4=<span class="number">2</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*t4)*[<span class="number">1</span>,<span class="number">-1</span>]; % 求到y4的曲线</span><br><span class="line">y5=<span class="number">2</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*t4).*<span class="built_in">sin</span>(<span class="number">2</span>*pi*t4); % 求到y4的曲线</span><br><span class="line">t5=<span class="number">0</span>:<span class="number">0.5</span>:<span class="number">2</span>*pi;      %生成x 的坐标，<span class="number">0</span><span class="number">-2</span>Π,每次步长了 <span class="number">0.5</span></span><br><span class="line">y6=<span class="number">2</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*t5).*<span class="built_in">sin</span>(<span class="number">2</span>*pi*t5);</span><br><span class="line">plot(t4,y4, &#x27;k:&#x27;,t4,y5, &#x27;b--&#x27;, t5,y6,&#x27;rp&#x27;) </span><br><span class="line">% t4 y4 的曲线设置为 k: 即为 黑色虚线</span><br><span class="line">% t4 y5 的曲线设置为 b-- 即为 蓝色双划线</span><br><span class="line">% t5 y6 的曲线设置为 rp: 即为 红色，数据标注格式为五角星标注 </span><br><span class="line"></span><br><span class="line">% fplot 函数基本用法 （【自适应】调整采样间隔函数）</span><br><span class="line">% fplot(f,lims,选项) 可以设置采样间隔</span><br><span class="line">% 其中，f代表一个函数，通常采用函数句</span><br><span class="line">% 柄的形式。lims为x轴的取值范围，用二元向</span><br><span class="line">% 量[xmin:xmax]描述，默认值为[<span class="number">-5</span>,<span class="number">5</span>]。选项定义与plot函数相同。</span><br><span class="line"></span><br><span class="line">%eg 绘制 <span class="number">1</span>/<span class="built_in">sin</span>（x) 的函数，在[<span class="number">0</span>,<span class="number">0.2</span>]区间绘图</span><br><span class="line">fplot(@(x)<span class="built_in">sin</span>(<span class="number">1.</span>/x),[<span class="number">0</span>,<span class="number">0.2</span>],<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"></span><br><span class="line">% 绘制螺旋线</span><br><span class="line">% 定义 ： x=t*<span class="built_in">sin</span>(t) y=t*<span class="built_in">cos</span>(t)</span><br><span class="line">fplot(@(t) t.*<span class="built_in">sin</span>(t),@(t) t.*<span class="built_in">cos</span>(t),[<span class="number">0</span>,<span class="number">10</span>*pi],<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">% 分析上行代码： @(t) 表示定义的自变量的函数 ，t 的取值范围是[<span class="number">0</span>,<span class="number">10</span>Π]，使用红线绘制</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="【plot-函数的使用】-【含选项参数的plot函数】"><a href="#【plot-函数的使用】-【含选项参数的plot函数】" class="headerlink" title="【plot 函数的使用】 【含选项参数的plot函数】"></a>【plot 函数的使用】 【含选项参数的plot函数】</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 第四节-matlab 绘图和数据可视化</span></span><br><span class="line"><span class="comment">% 01-二维曲线</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 画图函数</span></span><br><span class="line"><span class="comment">% 1、plot 函数</span></span><br><span class="line"><span class="comment">% plot函数的基本用法</span></span><br><span class="line"><span class="comment">% plot(x, y)</span></span><br><span class="line"><span class="comment">% 其中，x和y分别用于存储x坐标和y坐标数据。</span></span><br><span class="line"><span class="comment">% 注 ： x和y 是 的向量长度是相等的</span></span><br><span class="line"><span class="comment">% eg 绘制折线</span></span><br><span class="line">x=[<span class="number">2.5</span>,<span class="number">3.5</span>,<span class="number">4</span>,<span class="number">5</span>]     <span class="comment">% 设置x的横坐标</span></span><br><span class="line">y=[<span class="number">1.5</span>,<span class="number">2.0</span>,<span class="number">1</span>,<span class="number">1.5</span>]   <span class="comment">% 设置y的纵坐标</span></span><br><span class="line"><span class="built_in">plot</span>(x,y)           <span class="comment">% 绘制曲线</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 2、最简单的plot 调用格式</span></span><br><span class="line"><span class="comment">% plot(x)   %当x是实向量时，该向量下标的元素为横坐标，元素的值为坐标绘制的一条曲线</span></span><br><span class="line"><span class="comment">% </span></span><br><span class="line"><span class="comment">% 当plot函数的参数x是复数向量时，则分别以该向量元素实部和</span></span><br><span class="line"><span class="comment">% 虚部为横、纵坐标绘制出一条曲线。</span></span><br><span class="line">x</span><br><span class="line">y</span><br><span class="line">cx=x+y*<span class="built_in">i</span></span><br><span class="line"><span class="built_in">plot</span>(cx)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 3、plot 函数和矩阵的变化形式</span></span><br><span class="line"><span class="comment">% 当 x 是向量 ，y 是矩阵时</span></span><br><span class="line"><span class="comment">% 如果矩阵y的列数等于x的长度，则以向量x为横坐标，以y的每个</span></span><br><span class="line"><span class="comment">% 行向量为纵坐标绘制曲线，曲线的条数等于y的行数。</span></span><br><span class="line"><span class="comment">% 如果矩阵y的行数等于x的长度，则以向量x为横坐标，以y的每个</span></span><br><span class="line"><span class="comment">% 列向量为纵坐标绘制曲线，曲线的条数等于y的列数。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 例2绘制sinx、sin(2x)、 sin(x/2 )的函数曲线。</span></span><br><span class="line">x1=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">pi</span>,<span class="number">100</span>)</span><br><span class="line">y1=[<span class="built_in">sin</span>(x1);<span class="built_in">sin</span>(<span class="number">2</span>*x1);<span class="built_in">sin</span>(<span class="number">0.5</span>*x1)] <span class="comment">% 生成一个和x1列数相同的 3行的矩阵</span></span><br><span class="line"><span class="built_in">plot</span>(x1,y1)  <span class="comment">% x1是一行的矩阵 ，y1 是一行的矩阵，最终计算得到的绘制了一个3条的sin曲线</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 4、含多个输入参数的plot 函数</span></span><br><span class="line"><span class="comment">% eg 采样不同个数的数据点绘制正弦函数曲线，观察曲线形态</span></span><br><span class="line">t1=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">pi</span>,<span class="number">10</span>);  <span class="comment">% t1 设置了 等间距的10个点 ，起始点为 0 ，终止点为 2Π</span></span><br><span class="line">t2=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">pi</span>,<span class="number">20</span>) ; <span class="comment">% t2 设置了 等间距的20个点 ，起始点为 0 ，终止点为 2Π</span></span><br><span class="line">t3=<span class="built_in">linspace</span>(<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">pi</span>,<span class="number">100</span>); <span class="comment">% t3 设置了 等间距的100个点 ，起始点为 0 ，终止点为 2Π</span></span><br><span class="line"><span class="built_in">plot</span>(t1,<span class="built_in">sin</span>(t1) ,t2,<span class="built_in">sin</span>(t2)+<span class="number">2</span>,t3,<span class="built_in">sin</span>(t3)+<span class="number">3</span>) <span class="comment">%绘制了3条曲线 t1 sin(t1) t2 sin(t2)  t3 sin(t3) 分别依次对应绘制曲线</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 5、 含选项的plot函数</span></span><br><span class="line"><span class="comment">% plot（x,y,选项）</span></span><br><span class="line"><span class="comment">% 选项：</span></span><br><span class="line"><span class="comment">% 线形：【_】实线 【：】虚线 【_.】点画线 【__】 双画线 默认使用实现</span></span><br><span class="line"><span class="comment">% 颜色： 【r】红色 【g】绿色 【b】 蓝色 【w】白色 【k】 黑色 等其他颜色，省略颜色选项是，自动循环使用颜色</span></span><br><span class="line"><span class="comment">% 数据点标记：常用标记点 【*】星号 【o】圆圈 【s】方块 【p】五角星 【^】 朝上三角符号，默认无标记符号</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 例4用不同线型和颜色在同一坐标内绘制曲线y=2e^0.5x * sin(2πx)及其包络线。</span></span><br><span class="line">t4=(<span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">2</span>*<span class="built_in">pi</span>)&#x27;; <span class="comment">%生成x 的坐标，0-2Π,每次步长了 pi/50 注; 后面有个【&#x27;】单引号；变成了一个列向量</span></span><br><span class="line">y4=<span class="number">2</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*t4)*[<span class="number">1</span>,<span class="number">-1</span>]; <span class="comment">% 求到y4的曲线</span></span><br><span class="line">y5=<span class="number">2</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*t4).*<span class="built_in">sin</span>(<span class="number">2</span>*<span class="built_in">pi</span>*t4); <span class="comment">% 求到y4的曲线</span></span><br><span class="line">t5=<span class="number">0</span>:<span class="number">0.5</span>:<span class="number">2</span>*<span class="built_in">pi</span>;      <span class="comment">%生成x 的坐标，0-2Π,每次步长了 0.5</span></span><br><span class="line">y6=<span class="number">2</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*t5).*<span class="built_in">sin</span>(<span class="number">2</span>*<span class="built_in">pi</span>*t5);</span><br><span class="line"><span class="built_in">plot</span>(t4,y4, <span class="string">&#x27;k:&#x27;</span>,t4,y5, <span class="string">&#x27;b--&#x27;</span>, t5,y6,<span class="string">&#x27;rp&#x27;</span>) </span><br><span class="line"><span class="comment">% t4 y4 的曲线设置为 k: 即为 黑色虚线</span></span><br><span class="line"><span class="comment">% t4 y5 的曲线设置为 b-- 即为 蓝色双划线</span></span><br><span class="line"><span class="comment">% t5 y6 的曲线设置为 rp: 即为 红色，数据标注格式为五角星标注 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">% fplot 函数基本用法 （【自适应】调整采样间隔函数）</span></span><br><span class="line"><span class="comment">% fplot(f,lims,选项) 可以设置采样间隔</span></span><br><span class="line"><span class="comment">% 其中，f代表一个函数，通常采用函数句</span></span><br><span class="line"><span class="comment">% 柄的形式。lims为x轴的取值范围，用二元向</span></span><br><span class="line"><span class="comment">% 量[xmin:xmax]描述，默认值为[-5,5]。选项定义与plot函数相同。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%eg 绘制 1/sin（x) 的函数，在[0,0.2]区间绘图</span></span><br><span class="line">fplot(@(x)<span class="built_in">sin</span>(<span class="number">1.</span>/x),[<span class="number">0</span>,<span class="number">0.2</span>],<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 绘制螺旋线</span></span><br><span class="line"><span class="comment">% 定义 ： x=t*sin(t) y=t*cos(t)</span></span><br><span class="line">fplot(@(t) t.*<span class="built_in">sin</span>(t),@(t) t.*<span class="built_in">cos</span>(t),[<span class="number">0</span>,<span class="number">10</span>*<span class="built_in">pi</span>],<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"><span class="comment">% 分析上行代码： @(t) 表示定义的自变量的函数 ，t 的取值范围是[0,10Π]，使用红线绘制</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 	
 		</div>
 		
@@ -398,7 +398,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 矩阵基本操作
-【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】【改变矩阵的形状】12345678910111213141516171819202122232425262728293031323334...
 							</p>
 						</div>
 
@@ -406,29 +406,6 @@
 							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
-								matlab 矩阵基本运算			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵基本运算
-【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -444,7 +421,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 字符串处理和字符型数据
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
@@ -452,6 +429,29 @@
 							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】【逆矩阵】123456789101112131415161718192021222324252627282930313233343536373839404...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -467,7 +467,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
-【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】12345678910111213141516171819202122232425262728293...
+【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】12345678910111213141...
 							</p>
 						</div>
 
@@ -527,29 +527,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
-								矩阵的特征值与特征向量			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵的特征值与特征向量
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
 								稀疏矩阵			
 							</a>
@@ -567,6 +544,29 @@
 							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
 							</a>
 						</div>
 					</li>												

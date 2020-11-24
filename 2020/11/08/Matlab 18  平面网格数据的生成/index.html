@@ -272,7 +272,7 @@
 
 	<a href="/2020/11/08/Matlab%2018%20%20%E5%B9%B3%E9%9D%A2%E7%BD%91%E6%A0%BC%E6%95%B0%E6%8D%AE%E7%9A%84%E7%94%9F%E6%88%90/" itemprop="url">
 		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-19
+	  		2020-11-20
 	  </time>
 	</a> 
 
@@ -298,7 +298,7 @@
 
 		<div class="article-content" id="article-content">
 			<h1 id="绘图和数据可视化"><a href="#绘图和数据可视化" class="headerlink" title="绘图和数据可视化"></a>绘图和数据可视化</h1><p><img src="/img/blog_img/matlab/test.png"></p>
-<h2 id="【色彩处理】【色彩处理】【裁剪处理】【mesh函数和surf函数】"><a href="#【色彩处理】【色彩处理】【裁剪处理】【mesh函数和surf函数】" class="headerlink" title="【色彩处理】【色彩处理】【裁剪处理】【mesh函数和surf函数】"></a>【色彩处理】【色彩处理】【裁剪处理】【mesh函数和surf函数】</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">% 第四节-matlab 绘图和数据可视化</span><br><span class="line">% <span class="number">04</span>-三维曲【面】</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 平面网格数据的生成</span><br><span class="line">% 绘制三维曲面的mesh函数和surf函数</span><br><span class="line">% fmesh函数和fsurf函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 视点处理</span><br><span class="line">% 色彩处理</span><br><span class="line">% 裁剪处理</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%  view函数的基本用法</span><br><span class="line">%  view(az, el)</span><br><span class="line">%  其中，az为方位角，el为仰角。</span><br><span class="line">%   注： 方位角和仰角的概念需要搞清楚，这样在不同角度看看到的图形是不通的</span><br><span class="line"></span><br><span class="line">% 例<span class="number">1</span>绘制函数z =(x <span class="number">-1</span>)<span class="number">2</span>+(y <span class="number">-2</span>)<span class="number">2</span>- <span class="number">1</span>曲面，并从不同视点展示曲面。</span><br><span class="line"></span><br><span class="line">[x, y]=meshgrid(<span class="number">0</span>:<span class="number">0.1</span> :<span class="number">2</span>, <span class="number">1</span> :<span class="number">0.1</span> :<span class="number">3</span>); %生成x,y坐标平面</span><br><span class="line">z=(x<span class="number">-1</span>).^<span class="number">2</span>+(y<span class="number">-2</span>).^<span class="number">2</span><span class="number">-1</span>       % 获取得到x作坐标</span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">mesh(x, y, z)               %默认绘制的图形方位角</span><br><span class="line">title(&#x27;方位角=-37.5&#123;\circ&#125;,仰角=30&#123;\circ&#125;&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">mesh(x, y, z)</span><br><span class="line">view(<span class="number">0</span>, <span class="number">90</span>)</span><br><span class="line">title(&#x27;方位角=0&#123;\circ&#125;,仰角=90&#123;\circ&#125;&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">mesh(x, y, z)</span><br><span class="line">view(<span class="number">90</span>, <span class="number">0</span>)</span><br><span class="line">title(&#x27;方位角=90&#123;\circ&#125;,仰角=0&#123;\circ&#125;&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">mesh(x, y, z)</span><br><span class="line">view(<span class="number">-45</span>, <span class="number">-60</span>)</span><br><span class="line">title(&#x27;方位角=-45&#123;\circ&#125;,仰角= -60&#123;\circ&#125;&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% view函数的其他用法</span><br><span class="line">% viewlx, y, z)</span><br><span class="line">% view(<span class="number">2</span>)</span><br><span class="line">% view(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">% 色彩处理</span><br><span class="line">% 【R G B 】三种颜色表示 </span><br><span class="line">% [<span class="number">001</span>]:蓝色</span><br><span class="line">% [<span class="number">100</span>]:红色</span><br><span class="line">% [<span class="number">010</span>]:绿色</span><br><span class="line">% [<span class="number">111</span>]:白色</span><br><span class="line">% [<span class="number">000</span>]:黑色</span><br><span class="line"></span><br><span class="line">cmap=colormap(parula(<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line">% 指定当前图形使用的色图</span><br><span class="line">% colormap cmapname</span><br><span class="line">% colormap(cmap)</span><br><span class="line">% eg</span><br><span class="line">figure(<span class="number">2</span>)</span><br><span class="line">surf(peaks)  % 绘制的尖峰曲面图</span><br><span class="line">colormap hot % 设置色图颜色类型为 hot类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 创建一个灰色系列色图矩阵</span><br><span class="line">c=[<span class="number">0</span>,<span class="number">0.2</span>,<span class="number">0.4</span>,<span class="number">0.6</span>,<span class="number">0.8</span>,<span class="number">1</span>]&#x27;</span><br><span class="line">cmap=[c,c,c] % 等价于 cmap=gray（<span class="number">6</span>）</span><br><span class="line">surf(peaks)</span><br><span class="line">colormap(cmap)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 图形的裁剪处理将图形中需要裁剪部分对应的函</span><br><span class="line">% 数值设置成NaN,这样在绘制图形时，</span><br><span class="line">% 函数值为NaN的部分将不显示出来，从而达到对图形进行裁剪的目的。</span><br><span class="line"></span><br><span class="line">% eg 绘制<span class="number">3</span>/<span class="number">4</span>个圆</span><br><span class="line">t1= linspace(<span class="number">0</span>, <span class="number">2</span>*pi, <span class="number">100</span>)</span><br><span class="line">x1 = <span class="built_in">sin</span>(t1)</span><br><span class="line">y1 = <span class="built_in">cos</span>(t1);</span><br><span class="line">p=y1&gt; <span class="number">0.5</span>;</span><br><span class="line">y1(p)= NaN;  %裁剪y&gt;以<span class="number">0.5</span>上的数据部分</span><br><span class="line">plot(x1, y1)</span><br><span class="line">axis([<span class="number">-1.1</span>,<span class="number">1.1</span>,<span class="number">-1.1</span>, <span class="number">1.1</span>])</span><br><span class="line">axis square</span><br><span class="line">grid on </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%例<span class="number">5</span>绘制<span class="number">3</span>/<span class="number">4</span>球面。</span><br><span class="line">colormap <span class="keyword">default</span>  %设置色图为默认颜色</span><br><span class="line">[X, Y, Z] = sphere(<span class="number">60</span>); </span><br><span class="line">surf(X, Y, Z)   % 裁剪图形之前</span><br><span class="line">p = Z&gt;<span class="number">0.5</span>;</span><br><span class="line">Z(p) = NaN;</span><br><span class="line">surf(X, Y, Z)   % 裁剪图形以后</span><br><span class="line">axis([<span class="number">-1</span>, <span class="number">1</span>,<span class="number">-1</span>, <span class="number">1</span>,<span class="number">-1</span>, <span class="number">1</span>])</span><br><span class="line">axis equal</span><br><span class="line">view(<span class="number">-45</span>, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="【色彩处理】【色彩处理】【裁剪处理】【mesh函数和surf函数】"><a href="#【色彩处理】【色彩处理】【裁剪处理】【mesh函数和surf函数】" class="headerlink" title="【色彩处理】【色彩处理】【裁剪处理】【mesh函数和surf函数】"></a>【色彩处理】【色彩处理】【裁剪处理】【mesh函数和surf函数】</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">% 第四节-matlab 绘图和数据可视化</span></span><br><span class="line"><span class="comment">% 04-三维曲【面】</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 平面网格数据的生成</span></span><br><span class="line"><span class="comment">% 绘制三维曲面的mesh函数和surf函数</span></span><br><span class="line"><span class="comment">% fmesh函数和fsurf函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 视点处理</span></span><br><span class="line"><span class="comment">% 色彩处理</span></span><br><span class="line"><span class="comment">% 裁剪处理</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%  view函数的基本用法</span></span><br><span class="line"><span class="comment">%  view(az, el)</span></span><br><span class="line"><span class="comment">%  其中，az为方位角，el为仰角。</span></span><br><span class="line"><span class="comment">%   注： 方位角和仰角的概念需要搞清楚，这样在不同角度看看到的图形是不通的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 例1绘制函数z =(x -1)2+(y -2)2- 1曲面，并从不同视点展示曲面。</span></span><br><span class="line"></span><br><span class="line">[x, y]=<span class="built_in">meshgrid</span>(<span class="number">0</span>:<span class="number">0.1</span> :<span class="number">2</span>, <span class="number">1</span> :<span class="number">0.1</span> :<span class="number">3</span>); <span class="comment">%生成x,y坐标平面</span></span><br><span class="line">z=(x<span class="number">-1</span>).^<span class="number">2</span>+(y<span class="number">-2</span>).^<span class="number">2</span><span class="number">-1</span>       <span class="comment">% 获取得到x作坐标</span></span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">mesh(x, y, z)               <span class="comment">%默认绘制的图形方位角</span></span><br><span class="line">title(<span class="string">&#x27;方位角=-37.5&#123;\circ&#125;,仰角=30&#123;\circ&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">mesh(x, y, z)</span><br><span class="line">view(<span class="number">0</span>, <span class="number">90</span>)</span><br><span class="line">title(<span class="string">&#x27;方位角=0&#123;\circ&#125;,仰角=90&#123;\circ&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">mesh(x, y, z)</span><br><span class="line">view(<span class="number">90</span>, <span class="number">0</span>)</span><br><span class="line">title(<span class="string">&#x27;方位角=90&#123;\circ&#125;,仰角=0&#123;\circ&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">mesh(x, y, z)</span><br><span class="line">view(<span class="number">-45</span>, <span class="number">-60</span>)</span><br><span class="line">title(<span class="string">&#x27;方位角=-45&#123;\circ&#125;,仰角= -60&#123;\circ&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% view函数的其他用法</span></span><br><span class="line"><span class="comment">% viewlx, y, z)</span></span><br><span class="line"><span class="comment">% view(2)</span></span><br><span class="line"><span class="comment">% view(3)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 色彩处理</span></span><br><span class="line"><span class="comment">% 【R G B 】三种颜色表示 </span></span><br><span class="line"><span class="comment">% [001]:蓝色</span></span><br><span class="line"><span class="comment">% [100]:红色</span></span><br><span class="line"><span class="comment">% [010]:绿色</span></span><br><span class="line"><span class="comment">% [111]:白色</span></span><br><span class="line"><span class="comment">% [000]:黑色</span></span><br><span class="line"></span><br><span class="line">cmap=colormap(parula(<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">% 指定当前图形使用的色图</span></span><br><span class="line"><span class="comment">% colormap cmapname</span></span><br><span class="line"><span class="comment">% colormap(cmap)</span></span><br><span class="line"><span class="comment">% eg</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>)</span><br><span class="line">surf(peaks)  <span class="comment">% 绘制的尖峰曲面图</span></span><br><span class="line">colormap hot <span class="comment">% 设置色图颜色类型为 hot类型</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建一个灰色系列色图矩阵</span></span><br><span class="line">c=[<span class="number">0</span>,<span class="number">0.2</span>,<span class="number">0.4</span>,<span class="number">0.6</span>,<span class="number">0.8</span>,<span class="number">1</span>]&#x27;</span><br><span class="line">cmap=[c,c,c] <span class="comment">% 等价于 cmap=gray（6）</span></span><br><span class="line">surf(peaks)</span><br><span class="line">colormap(cmap)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 图形的裁剪处理将图形中需要裁剪部分对应的函</span></span><br><span class="line"><span class="comment">% 数值设置成NaN,这样在绘制图形时，</span></span><br><span class="line"><span class="comment">% 函数值为NaN的部分将不显示出来，从而达到对图形进行裁剪的目的。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% eg 绘制3/4个圆</span></span><br><span class="line">t1= <span class="built_in">linspace</span>(<span class="number">0</span>, <span class="number">2</span>*<span class="built_in">pi</span>, <span class="number">100</span>)</span><br><span class="line">x1 = <span class="built_in">sin</span>(t1)</span><br><span class="line">y1 = <span class="built_in">cos</span>(t1);</span><br><span class="line">p=y1&gt; <span class="number">0.5</span>;</span><br><span class="line">y1(p)= NaN;  <span class="comment">%裁剪y&gt;以0.5上的数据部分</span></span><br><span class="line"><span class="built_in">plot</span>(x1, y1)</span><br><span class="line">axis([<span class="number">-1.1</span>,<span class="number">1.1</span>,<span class="number">-1.1</span>, <span class="number">1.1</span>])</span><br><span class="line">axis square</span><br><span class="line">grid on </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%例5绘制3/4球面。</span></span><br><span class="line">colormap default  <span class="comment">%设置色图为默认颜色</span></span><br><span class="line">[X, Y, Z] = sphere(<span class="number">60</span>); </span><br><span class="line">surf(X, Y, Z)   <span class="comment">% 裁剪图形之前</span></span><br><span class="line">p = Z&gt;<span class="number">0.5</span>;</span><br><span class="line">Z(p) = NaN;</span><br><span class="line">surf(X, Y, Z)   <span class="comment">% 裁剪图形以后</span></span><br><span class="line">axis([<span class="number">-1</span>, <span class="number">1</span>,<span class="number">-1</span>, <span class="number">1</span>,<span class="number">-1</span>, <span class="number">1</span>])</span><br><span class="line">axis equal</span><br><span class="line">view(<span class="number">-45</span>, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 		</div>
@@ -399,7 +399,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 矩阵基本操作
-【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】【改变矩阵的形状】12345678910111213141516171819202122232425262728293031323334...
 							</p>
 						</div>
 
@@ -407,29 +407,6 @@
 							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
-								matlab 矩阵基本运算			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵基本运算
-【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -445,7 +422,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 字符串处理和字符型数据
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
@@ -453,6 +430,29 @@
 							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】【逆矩阵】123456789101112131415161718192021222324252627282930313233343536373839404...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -468,7 +468,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
-【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】12345678910111213141516171819202122232425262728293...
+【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】12345678910111213141...
 							</p>
 						</div>
 
@@ -528,29 +528,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
-								矩阵的特征值与特征向量			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵的特征值与特征向量
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
 								稀疏矩阵			
 							</a>
@@ -568,6 +545,29 @@
 							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
 							</a>
 						</div>
 					</li>												

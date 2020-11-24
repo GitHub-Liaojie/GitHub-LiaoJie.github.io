@@ -272,7 +272,7 @@
 
 	<a href="/2020/11/08/Matlab%2006%20%20%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%20%E9%9A%8F%E6%9C%BA%E7%9F%A9%E9%98%B5%E5%92%8C%E9%80%9A%E7%94%A8%E7%9F%A9%E9%98%B5%E7%9A%84%E4%BA%A7%E7%94%9F/" itemprop="url">
 		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-19
+	  		2020-11-20
 	  </time>
 	</a> 
 
@@ -298,7 +298,7 @@
 
 		<div class="article-content" id="article-content">
 			<h1 id="matlab-特殊矩阵-、随机矩阵和通用矩阵的产生"><a href="#matlab-特殊矩阵-、随机矩阵和通用矩阵的产生" class="headerlink" title="matlab 特殊矩阵 、随机矩阵和通用矩阵的产生"></a>matlab 特殊矩阵 、随机矩阵和通用矩阵的产生</h1><p><img src="/img/blog_img/matlab/test.png"></p>
-<h2 id="【特殊矩阵】-【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】"><a href="#【特殊矩阵】-【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】" class="headerlink" title="【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】"></a>【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">% 第二节 矩阵变换</span><br><span class="line">% 特殊矩阵 和通用矩阵</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 通用特殊矩阵</span><br><span class="line">% 【zeros函数】：产生全<span class="number">0</span>矩阵，零矩阵</span><br><span class="line">% 【ones函数】：产生全<span class="number">1</span>矩阵，幺矩阵</span><br><span class="line">% 【eys函数】 ：产生对角线为<span class="number">1</span>的矩阵。当矩阵是方阵时，得到一个单位矩阵</span><br><span class="line">% 【rand函数】：产生（<span class="number">0</span>，<span class="number">1</span>）区间均匀分布的随机矩阵</span><br><span class="line">% 【randn函数】： 产生均值为<span class="number">0</span>，方差为<span class="number">1</span>的标准正态分布随机矩阵</span><br><span class="line"></span><br><span class="line">%调用方式</span><br><span class="line">% zeros函数的调用格式: <span class="number">3</span>种方式</span><br><span class="line">% zeros(m): 产生m x m零矩阵。</span><br><span class="line">% zeros(m,n): 产生m x n零矩阵。</span><br><span class="line">% zeros(size(A)): 产生与矩阵A同样大小的零矩阵。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%eg</span><br><span class="line">zeros(<span class="number">3</span>) %产生<span class="number">3</span> x <span class="number">3</span> 零矩阵</span><br><span class="line">zeros(<span class="number">3</span>,<span class="number">2</span>) %产生<span class="number">3</span> x <span class="number">2</span> 零矩阵。</span><br><span class="line">D=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>]</span><br><span class="line">zeros(size(D)) %产生与矩阵A同样大小的零矩阵。</span><br><span class="line">zeros(size(reshape(D,<span class="number">3</span>,<span class="number">2</span>))) %调用reshape函数将 A矩阵<span class="number">2</span>*<span class="number">3</span>的形状重新定义为<span class="number">3</span>*<span class="number">2</span>的矩阵，随后产生<span class="number">3</span> x <span class="number">2</span> 零矩阵。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 产生<span class="number">5</span>阶两位随机整数矩阵A,再产生均值为<span class="number">0.6</span>、方差为<span class="number">0.1</span>的<span class="number">5</span>阶正态随机分布矩阵B</span><br><span class="line">% ，最后验证（A+B）I=|A+B|</span><br><span class="line"></span><br><span class="line">% rand函数: 产生(<span class="number">0</span>，<span class="number">1</span>)开区间均匀分布的随机数x。</span><br><span class="line">% fix(a+(b-a+<span class="number">1</span>)*x):产生[a，b]区间.上均匀分布的随机【整数】，注: x是一个矩阵。</span><br><span class="line">% randn函数:产生【均值为<span class="number">0</span>、方差为<span class="number">1</span>】的标准正态分布随机数x。</span><br><span class="line">% μ+σX: 得到均值为μ、方差为σ^<span class="number">2</span>的随机数。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">A=fix(<span class="number">10</span>+(<span class="number">99</span><span class="number">-10</span>+<span class="number">1</span>)*rand(<span class="number">5</span>)) %产生一个<span class="number">10</span><span class="number">-99</span>之间的随机整数的<span class="number">5</span>阶矩阵</span><br><span class="line">B=<span class="number">0.6</span>+<span class="built_in">sqrt</span>(<span class="number">0.1</span>)*randn(<span class="number">5</span>)    %产生一个随机均值为<span class="number">0.6</span>，方差为<span class="number">0.1</span>的矩阵</span><br><span class="line">C=eye(<span class="number">5</span>)  % D产生一个<span class="number">5</span>阶的对角阵</span><br><span class="line">(A+B)*C==C*A+B*C %判断两个是否相等 即验证 验证（A+B）I=|A+B|</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%【魔方矩阵】 ,类似于九宫格类型的矩阵</span><br><span class="line">% 特点： n阶魔方阵由<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,..,.n2共n2个整数组成，且每行、每列以及</span><br><span class="line">% 主、副对角线上各n个元素之和都相等。</span><br><span class="line">% matlab中，产生的魔方阵是固定的</span><br><span class="line">M=magic(<span class="number">3</span>)</span><br><span class="line">N=magic(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">% 产生<span class="number">8</span>阶魔方阵，求其每行，每列元素的和</span><br><span class="line">M=magic(<span class="number">8</span>)</span><br><span class="line">M(<span class="number">1</span>,:)</span><br><span class="line">sum(M(<span class="number">1</span>,:)) %第一行的元素求和</span><br><span class="line">sum(M(:,<span class="number">1</span>)) %第一例的元素求和</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 【范德蒙矩阵】</span><br><span class="line">% 对于向量V=[v，V2,...,v]，范得蒙矩阵的一般形式为</span><br><span class="line">% 在MATLAB中，函数vander(V)生成以向量V为基础的范得</span><br><span class="line">% 蒙(Vandermonde )矩阵。</span><br><span class="line">A=vander(<span class="number">1</span>:<span class="number">5</span>)</span><br><span class="line">% 范德蒙矩阵常用在各种通信系统的纠错编码中</span><br><span class="line">% 例如，常用的Reed- Solomon编码即以范德蒙矩阵为基础。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%【希尔伯特矩阵】</span><br><span class="line">% 函数 hilb（<span class="number">4</span>）</span><br><span class="line">format rat %以分数的形式表示</span><br><span class="line">H=hilb(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 【伴随矩阵】 需要了解一下</span><br><span class="line">% compan(p)</span><br><span class="line">% 例如，生成多项式x^<span class="number">3</span><span class="number">-2</span>x^<span class="number">2</span>- <span class="number">5</span>x+<span class="number">6</span>的伴随矩阵。</span><br><span class="line">z=[<span class="number">1</span>,<span class="number">-2</span>,<span class="number">-5</span>,<span class="number">6</span>]</span><br><span class="line">Z=compan(z)</span><br><span class="line"></span><br><span class="line">% 【帕斯卡矩阵】</span><br><span class="line">% 根据二项式定理，(x+y)^n 展开后的系数随着n的增大组成一个三 角</span><br><span class="line">% 形表，这个三角形称为杨辉三角形。</span><br><span class="line">% 函数 pascal(n)</span><br><span class="line">% 生成<span class="number">5</span>阶帕斯卡矩阵</span><br><span class="line">P=pascal(<span class="number">5</span>)</span><br><span class="line">%帕斯卡矩阵特点，矩阵本身是整数，他的逆矩阵也是整数</span><br><span class="line">inv(P)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="【特殊矩阵】-【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size-函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】"><a href="#【特殊矩阵】-【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size-函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】" class="headerlink" title="【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】"></a>【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 第二节 矩阵变换</span></span><br><span class="line"><span class="comment">% 特殊矩阵 和通用矩阵</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 通用特殊矩阵</span></span><br><span class="line"><span class="comment">% 【zeros函数】：产生全0矩阵，零矩阵</span></span><br><span class="line"><span class="comment">% 【ones函数】：产生全1矩阵，幺矩阵</span></span><br><span class="line"><span class="comment">% 【eys函数】 ：产生对角线为1的矩阵。当矩阵是方阵时，得到一个单位矩阵</span></span><br><span class="line"><span class="comment">% 【rand函数】：产生（0，1）区间均匀分布的随机矩阵</span></span><br><span class="line"><span class="comment">% 【randn函数】： 产生均值为0，方差为1的标准正态分布随机矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%调用方式</span></span><br><span class="line"><span class="comment">% zeros函数的调用格式: 3种方式</span></span><br><span class="line"><span class="comment">% zeros(m): 产生m x m零矩阵。</span></span><br><span class="line"><span class="comment">% zeros(m,n): 产生m x n零矩阵。</span></span><br><span class="line"><span class="comment">% zeros(size(A)): 产生与矩阵A同样大小的零矩阵。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%eg 【size 函数】的使用</span></span><br><span class="line"><span class="built_in">zeros</span>(<span class="number">3</span>) <span class="comment">%产生3 x 3 零矩阵</span></span><br><span class="line"><span class="built_in">zeros</span>(<span class="number">3</span>,<span class="number">2</span>) <span class="comment">%产生3 x 2 零矩阵。</span></span><br><span class="line">D=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>]</span><br><span class="line"><span class="built_in">zeros</span>(<span class="built_in">size</span>(D)) <span class="comment">%产生与矩阵A同样大小的零矩阵。</span></span><br><span class="line"><span class="built_in">zeros</span>(<span class="built_in">size</span>(<span class="built_in">reshape</span>(D,<span class="number">3</span>,<span class="number">2</span>))) <span class="comment">%调用reshape函数将 A矩阵2*3的形状重新定义为3*2的矩阵，随后产生3 x 2 零矩阵。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 【正态分布和高斯分布】</span></span><br><span class="line"><span class="comment">% 产生5阶两位随机整数矩阵A,再产生均值为0.6、方差为0.1的5阶正态随机分布矩阵B</span></span><br><span class="line"><span class="comment">% ，最后验证（A+B）I=|A+B|</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% rand函数: 产生(0，1)开区间【均匀分布】的随机数x。</span></span><br><span class="line"><span class="comment">% fix(a+(b-a+1)*x):产生[a，b]区间.上均匀分布的随机【整数】，注: x是一个矩阵。</span></span><br><span class="line"><span class="comment">% randn函数:产生【均值为0、方差为1】的标准正态分布随机数x。</span></span><br><span class="line"><span class="comment">% μ+σX: 得到均值为μ、方差为σ^2的随机数。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">A=<span class="built_in">fix</span>(<span class="number">10</span>+(<span class="number">99</span><span class="number">-10</span>+<span class="number">1</span>)*<span class="built_in">rand</span>(<span class="number">5</span>)) <span class="comment">%产生一个10-99之间的随机整数的5阶矩阵</span></span><br><span class="line">B=<span class="number">0.6</span>+<span class="built_in">sqrt</span>(<span class="number">0.1</span>)*<span class="built_in">randn</span>(<span class="number">5</span>)    <span class="comment">%产生一个随机均值为0.6，方差为0.1的矩阵</span></span><br><span class="line">C=<span class="built_in">eye</span>(<span class="number">5</span>)  				  <span class="comment">% D产生一个5阶的对角阵</span></span><br><span class="line">(A+B)*C==C*A+B*C <span class="comment">%判断两个是否相等 即验证 验证（A+B）I=|A+B|</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%【魔方矩阵】 ,类似于九宫格类型的矩阵</span></span><br><span class="line"><span class="comment">% 特点： n阶魔方阵由1,2,3,..,.n2共n2个整数组成，且每行、每列以及</span></span><br><span class="line"><span class="comment">% 主、副对角线上各n个元素之和都相等。</span></span><br><span class="line"><span class="comment">% matlab中，产生的魔方阵是固定的</span></span><br><span class="line">M=<span class="built_in">magic</span>(<span class="number">3</span>)</span><br><span class="line">N=<span class="built_in">magic</span>(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 产生8阶魔方阵，求其每行，每列元素的和</span></span><br><span class="line">M=<span class="built_in">magic</span>(<span class="number">8</span>)</span><br><span class="line">M(<span class="number">1</span>,:)</span><br><span class="line">sum(M(<span class="number">1</span>,:)) <span class="comment">%第一行的元素求和</span></span><br><span class="line">sum(M(:,<span class="number">1</span>)) <span class="comment">%第一例的元素求和</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 【范德蒙矩阵】</span></span><br><span class="line"><span class="comment">% 对于向量V=[v，V2,...,v]，范得蒙矩阵的一般形式为</span></span><br><span class="line"><span class="comment">% 在MATLAB中，函数vander(V)生成以向量V为基础的范得</span></span><br><span class="line"><span class="comment">% 蒙(Vandermonde )矩阵。</span></span><br><span class="line">A=<span class="built_in">vander</span>(<span class="number">1</span>:<span class="number">5</span>)</span><br><span class="line"><span class="comment">% 范德蒙矩阵常用在各种通信系统的纠错编码中</span></span><br><span class="line"><span class="comment">% 例如，常用的Reed- Solomon编码即以范德蒙矩阵为基础。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%【希尔伯特矩阵】</span></span><br><span class="line"><span class="comment">% 函数 hilb（4）</span></span><br><span class="line">format <span class="built_in">rat</span> <span class="comment">%以分数的形式表示</span></span><br><span class="line">H=<span class="built_in">hilb</span>(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 【伴随矩阵】 需要了解一下</span></span><br><span class="line"><span class="comment">% compan(p)</span></span><br><span class="line"><span class="comment">% 例如，生成多项式x^3-2x^2- 5x+6的伴随矩阵。</span></span><br><span class="line">z=[<span class="number">1</span>,<span class="number">-2</span>,<span class="number">-5</span>,<span class="number">6</span>]</span><br><span class="line">Z=<span class="built_in">compan</span>(z)</span><br><span class="line"></span><br><span class="line"><span class="comment">% 【帕斯卡矩阵】</span></span><br><span class="line"><span class="comment">% 根据二项式定理，(x+y)^n 展开后的系数随着n的增大组成一个三 角</span></span><br><span class="line"><span class="comment">% 形表，这个三角形称为杨辉三角形。</span></span><br><span class="line"><span class="comment">% 函数 pascal(n)</span></span><br><span class="line"><span class="comment">% 生成5阶帕斯卡矩阵</span></span><br><span class="line">P=<span class="built_in">pascal</span>(<span class="number">5</span>)</span><br><span class="line"><span class="comment">%帕斯卡矩阵特点，矩阵本身是整数，他的逆矩阵也是整数</span></span><br><span class="line">inv(P)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 	
 		</div>
 		
@@ -317,7 +317,7 @@
 	<span>
 		<a id="totop-post-page">To Top</a>
 		
-			<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据" rel="prev">
+			<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算" rel="prev">
 				&laquo;Pre post
 			</a>
 		
@@ -398,7 +398,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 矩阵基本操作
-【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】【改变矩阵的形状】12345678910111213141516171819202122232425262728293031323334...
 							</p>
 						</div>
 
@@ -406,29 +406,6 @@
 							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
-								matlab 矩阵基本运算			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵基本运算
-【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -444,7 +421,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 字符串处理和字符型数据
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
@@ -452,6 +429,29 @@
 							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】【逆矩阵】123456789101112131415161718192021222324252627282930313233343536373839404...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -504,29 +504,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
-								矩阵的特征值与特征向量			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵的特征值与特征向量
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
 								稀疏矩阵			
 							</a>
@@ -544,6 +521,29 @@
 							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
 							</a>
 						</div>
 					</li>												

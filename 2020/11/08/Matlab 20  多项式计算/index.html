@@ -272,7 +272,7 @@
 
 	<a href="/2020/11/08/Matlab%2020%20%20%E5%A4%9A%E9%A1%B9%E5%BC%8F%E8%AE%A1%E7%AE%97/" itemprop="url">
 		<time datetime="2020-11-07T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-19
+	  		2020-11-20
 	  </time>
 	</a> 
 
@@ -298,7 +298,7 @@
 
 		<div class="article-content" id="article-content">
 			<h1 id="matlab-多项式计算"><a href="#matlab-多项式计算" class="headerlink" title="matlab 多项式计算"></a>matlab 多项式计算</h1><p><img src="/img/blog_img/matlab/test.png"></p>
-<h2 id="【多项式的表示】【多项式的四则运算】【多项式的求导】【多项式的求值】【多项式的求根】"><a href="#【多项式的表示】【多项式的四则运算】【多项式的求导】【多项式的求值】【多项式的求根】" class="headerlink" title="【多项式的表示】【多项式的四则运算】【多项式的求导】【多项式的求值】【多项式的求根】"></a>【多项式的表示】【多项式的四则运算】【多项式的求导】【多项式的求值】【多项式的求根】</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">% 第四节-matlab 绘图和数据可视化</span><br><span class="line">% <span class="number">02</span>-多项式计算</span><br><span class="line">% </span><br><span class="line">% 多项式的表示</span><br><span class="line">% 多项式的四则运算</span><br><span class="line">% 多项式的求导</span><br><span class="line">% 多项式的求值</span><br><span class="line">% 多项式的求根</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% (<span class="number">1</span>)多项式的加减运算</span><br><span class="line">% 多项式的加减运算非常简单，即相应向量相加减。</span><br><span class="line">% (<span class="number">2</span>)多项式乘法</span><br><span class="line">% conv (P1,P2) :多项式相乘函数。</span><br><span class="line">% (<span class="number">3</span>)多项式除法</span><br><span class="line">% [Q,r]=deconv(PI,P2):多项式相除函数。</span><br><span class="line">% 其中，Q返回多项式P1除以P2的商式，r返回P1除以P2的余</span><br><span class="line">% 式。这里，Q和r仍是多项式系数向量。</span><br><span class="line">% deconv是conv的逆函数，因此有</span><br><span class="line"></span><br><span class="line">% 例<span class="number">1</span>设f(x)=<span class="number">3</span>x^<span class="number">5</span><span class="number">-5</span>x^<span class="number">4</span><span class="number">-7</span>x^<span class="number">2</span>+<span class="number">5</span>x+<span class="number">6</span>, g(x)=<span class="number">3</span>x^<span class="number">2</span>+<span class="number">5</span>x<span class="number">-3</span>，求</span><br><span class="line">% f(x)+g(x)，f(x)-g(x)， f(x) . g(x)，f(x)/g(x)。</span><br><span class="line">f=[<span class="number">3</span>,<span class="number">-5</span>,<span class="number">0</span>,<span class="number">-7</span>,<span class="number">5</span>,<span class="number">6</span>]  %分别表示的是 x^[<span class="number">5</span><span class="number">-0</span>]次方的数，中间的 <span class="number">0</span>表示的是<span class="number">0</span>*x^<span class="number">3</span></span><br><span class="line">g=[<span class="number">3</span>,<span class="number">5</span>,<span class="number">-3</span>]         %分别表示的是x^[<span class="number">2</span><span class="number">-0</span>]</span><br><span class="line">g1=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,g]       %前面的<span class="number">0</span> 表示的是，g（x） <span class="number">0</span>*x^<span class="number">5</span> 、<span class="number">0</span>*x^<span class="number">4</span> 、<span class="number">0</span>*x^<span class="number">3</span></span><br><span class="line">% 注：g1 是为了保证f（x) 和 g(x)之间的向量等长</span><br><span class="line">f+g1  %f（x）+g（x）</span><br><span class="line">f-g1  %f（x）-g（x）</span><br><span class="line">conv(f,g) % 注：这里是g，【不是g1】 ，表示的是多项式相乘</span><br><span class="line">[Q,r]=deconv(f,g) %多项式相除 Q是商式 ，r 是余式</span><br><span class="line">conv(g,Q)+r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%多项式求导</span><br><span class="line">% polyder 函数</span><br><span class="line">% polyder():多项式求导函数。</span><br><span class="line">% 调用格式:</span><br><span class="line">% (<span class="number">1</span>) p=polyder(P):求多项式P的导函数。</span><br><span class="line">% (<span class="number">2</span>) p=polyder(P,Q):求P*Q的导函数。</span><br><span class="line">% (<span class="number">3</span>) [p,q]=polyder(P,Q): 求P/Q的导函数，导函数的分子存入p,分母存入q。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%   例<span class="number">2</span>已知两个多项式:</span><br><span class="line">%   a(x)=<span class="number">3</span>x^<span class="number">3</span>+x^<span class="number">2</span><span class="number">-6</span></span><br><span class="line">%   b(x)=x+<span class="number">2</span></span><br><span class="line">%   计算两个多项式的乘积的导函数、商的导函数。</span><br><span class="line"></span><br><span class="line">a=[<span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-6</span>]</span><br><span class="line">b=[<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">polyder(a) %对a(x)求导</span><br><span class="line">c=polyder(a,b) %计算 a(x) * b(x) 的乘积进行求导</span><br><span class="line"></span><br><span class="line">[p,q]=polyder(a,b) % 计算两个多项式商的导函数， 注：p为分子式，q为分母式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% 求多项式的值</span><br><span class="line">% polyval(p,x):代数多项式求值。（理解： 当 x=x0一个数时，求得f(x0)的值）</span><br><span class="line">% polyvalmlp,x):矩阵多项式求值。</span><br><span class="line"></span><br><span class="line">% 其中，p为多项式系数向量; x可以是标量、向量或矩阵。若x</span><br><span class="line">% 为标量，则求多项式在该点的值;若x为向量或矩阵，则对向量或</span><br><span class="line">% 矩阵中的每个元素求多项式的值。</span><br><span class="line"></span><br><span class="line">%   polyvalm|p,x)</span><br><span class="line">%   其调用格式与polyval相同，但含义不同。polyvalm函数</span><br><span class="line">%   要求【x为方阵】，以方阵为自变量求多项式的值。</span><br><span class="line">%   <span class="number">9</span>：<span class="number">00</span></span><br><span class="line"></span><br><span class="line">% 例<span class="number">3</span>以多项式x^<span class="number">4</span>+<span class="number">8</span>*x^<span class="number">3</span> <span class="number">-10</span>为例，取一个<span class="number">2</span> x <span class="number">2</span>矩阵为自变量，分别用</span><br><span class="line">% polyval和polyvalm计算该多项式的值。</span><br><span class="line"></span><br><span class="line">a1=[<span class="number">1</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-10</span>]    %  x^<span class="number">4</span>+<span class="number">8</span>*x^<span class="number">3</span> <span class="number">-10</span></span><br><span class="line">x1=[<span class="number">-1</span>,<span class="number">1.2</span>;<span class="number">2</span>,<span class="number">-1.8</span>]  %  </span><br><span class="line">y1=polyval(a1,x1)   %  向量求多项式，求得的是多项式的值</span><br><span class="line">y2=polyvalm(a1,x1)  %</span><br><span class="line"></span><br><span class="line">% 多项式求根</span><br><span class="line">% roots（p）  多项式求根函数</span><br><span class="line">% 其中，p为多项式的系数向量。</span><br><span class="line">% 例如，求多项式x4+<span class="number">8</span>x3<span class="number">-10</span>的根</span><br><span class="line">a2=[<span class="number">1</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-10</span>]</span><br><span class="line">x2=roots(a)  %包括x的复数根</span><br><span class="line"></span><br><span class="line">% 若已知多项式的全部根，则可以用poly函数建立起该多项式，</span><br><span class="line">% 其调用格式为:</span><br><span class="line">% p=poly(x)</span><br><span class="line">x2</span><br><span class="line">p=poly(x2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="【多项式的表示】【多项式的四则运算】【多项式的求导】【多项式的求值】【多项式的求根】"><a href="#【多项式的表示】【多项式的四则运算】【多项式的求导】【多项式的求值】【多项式的求根】" class="headerlink" title="【多项式的表示】【多项式的四则运算】【多项式的求导】【多项式的求值】【多项式的求根】"></a>【多项式的表示】【多项式的四则运算】【多项式的求导】【多项式的求值】【多项式的求根】</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">% 第四节-matlab 绘图和数据可视化</span></span><br><span class="line"><span class="comment">% 02-多项式计算</span></span><br><span class="line"><span class="comment">% </span></span><br><span class="line"><span class="comment">% 多项式的表示</span></span><br><span class="line"><span class="comment">% 多项式的四则运算</span></span><br><span class="line"><span class="comment">% 多项式的求导</span></span><br><span class="line"><span class="comment">% 多项式的求值</span></span><br><span class="line"><span class="comment">% 多项式的求根</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% (1)多项式的加减运算</span></span><br><span class="line"><span class="comment">% 多项式的加减运算非常简单，即相应向量相加减。</span></span><br><span class="line"><span class="comment">% (2)多项式乘法</span></span><br><span class="line"><span class="comment">% conv (P1,P2) :多项式相乘函数。</span></span><br><span class="line"><span class="comment">% (3)多项式除法</span></span><br><span class="line"><span class="comment">% [Q,r]=deconv(PI,P2):多项式相除函数。</span></span><br><span class="line"><span class="comment">% 其中，Q返回多项式P1除以P2的商式，r返回P1除以P2的余</span></span><br><span class="line"><span class="comment">% 式。这里，Q和r仍是多项式系数向量。</span></span><br><span class="line"><span class="comment">% deconv是conv的逆函数，因此有</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 例1设f(x)=3x^5-5x^4-7x^2+5x+6, g(x)=3x^2+5x-3，求</span></span><br><span class="line"><span class="comment">% f(x)+g(x)，f(x)-g(x)， f(x) . g(x)，f(x)/g(x)。</span></span><br><span class="line">f=[<span class="number">3</span>,<span class="number">-5</span>,<span class="number">0</span>,<span class="number">-7</span>,<span class="number">5</span>,<span class="number">6</span>]  <span class="comment">%分别表示的是 x^[5-0]次方的数，中间的 0表示的是0*x^3</span></span><br><span class="line">g=[<span class="number">3</span>,<span class="number">5</span>,<span class="number">-3</span>]         <span class="comment">%分别表示的是x^[2-0]</span></span><br><span class="line">g1=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,g]       <span class="comment">%前面的0 表示的是，g（x） 0*x^5 、0*x^4 、0*x^3</span></span><br><span class="line"><span class="comment">% 注：g1 是为了保证f（x) 和 g(x)之间的向量等长</span></span><br><span class="line">f+g1  <span class="comment">%f（x）+g（x）</span></span><br><span class="line">f-g1  <span class="comment">%f（x）-g（x）</span></span><br><span class="line">conv(f,g) <span class="comment">% 注：这里是g，【不是g1】 ，表示的是多项式相乘</span></span><br><span class="line">[Q,r]=deconv(f,g) <span class="comment">%多项式相除 Q是商式 ，r 是余式</span></span><br><span class="line">conv(g,Q)+r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%多项式求导</span></span><br><span class="line"><span class="comment">% polyder 函数</span></span><br><span class="line"><span class="comment">% polyder():多项式求导函数。</span></span><br><span class="line"><span class="comment">% 调用格式:</span></span><br><span class="line"><span class="comment">% (1) p=polyder(P):求多项式P的导函数。</span></span><br><span class="line"><span class="comment">% (2) p=polyder(P,Q):求P*Q的导函数。</span></span><br><span class="line"><span class="comment">% (3) [p,q]=polyder(P,Q): 求P/Q的导函数，导函数的分子存入p,分母存入q。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%   例2已知两个多项式:</span></span><br><span class="line"><span class="comment">%   a(x)=3x^3+x^2-6</span></span><br><span class="line"><span class="comment">%   b(x)=x+2</span></span><br><span class="line"><span class="comment">%   计算两个多项式的乘积的导函数、商的导函数。</span></span><br><span class="line"></span><br><span class="line">a=[<span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-6</span>]</span><br><span class="line">b=[<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">polyder(a) <span class="comment">%对a(x)求导</span></span><br><span class="line">c=polyder(a,b) <span class="comment">%计算 a(x) * b(x) 的乘积进行求导</span></span><br><span class="line"></span><br><span class="line">[p,q]=polyder(a,b) <span class="comment">% 计算两个多项式商的导函数， 注：p为分子式，q为分母式</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">% 求多项式的值</span></span><br><span class="line"><span class="comment">% polyval(p,x):代数多项式求值。（理解： 当 x=x0一个数时，求得f(x0)的值）</span></span><br><span class="line"><span class="comment">% polyvalmlp,x):矩阵多项式求值。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 其中，p为多项式系数向量; x可以是标量、向量或矩阵。若x</span></span><br><span class="line"><span class="comment">% 为标量，则求多项式在该点的值;若x为向量或矩阵，则对向量或</span></span><br><span class="line"><span class="comment">% 矩阵中的每个元素求多项式的值。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%   polyvalm|p,x)</span></span><br><span class="line"><span class="comment">%   其调用格式与polyval相同，但含义不同。polyvalm函数</span></span><br><span class="line"><span class="comment">%   要求【x为方阵】，以方阵为自变量求多项式的值。</span></span><br><span class="line"><span class="comment">%   9：00</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 例3以多项式x^4+8*x^3 -10为例，取一个2 x 2矩阵为自变量，分别用</span></span><br><span class="line"><span class="comment">% polyval和polyvalm计算该多项式的值。</span></span><br><span class="line"></span><br><span class="line">a1=[<span class="number">1</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-10</span>]    <span class="comment">%  x^4+8*x^3 -10</span></span><br><span class="line">x1=[<span class="number">-1</span>,<span class="number">1.2</span>;<span class="number">2</span>,<span class="number">-1.8</span>]  <span class="comment">%  </span></span><br><span class="line">y1=polyval(a1,x1)   <span class="comment">%  向量求多项式，求得的是多项式的值</span></span><br><span class="line">y2=polyvalm(a1,x1)  <span class="comment">%</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 多项式求根</span></span><br><span class="line"><span class="comment">% roots（p）  多项式求根函数</span></span><br><span class="line"><span class="comment">% 其中，p为多项式的系数向量。</span></span><br><span class="line"><span class="comment">% 例如，求多项式x4+8x3-10的根</span></span><br><span class="line">a2=[<span class="number">1</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">-10</span>]</span><br><span class="line">x2=roots(a)  <span class="comment">%包括x的复数根</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 若已知多项式的全部根，则可以用poly函数建立起该多项式，</span></span><br><span class="line"><span class="comment">% 其调用格式为:</span></span><br><span class="line"><span class="comment">% p=poly(x)</span></span><br><span class="line">x2</span><br><span class="line">p=poly(x2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 	
 		</div>
@@ -399,7 +399,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 矩阵基本操作
-【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】12345678910111213141516171819202122232425262728293031323334353637383...
+【矩阵扩展】【矩阵的读取】【获得子矩阵】【end 运算符】【删除矩阵】【改变矩阵的形状】12345678910111213141516171819202122232425262728293031323334...
 							</p>
 						</div>
 
@@ -407,29 +407,6 @@
 							<a href="/2020/11/08/Matlab%2003%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" title="矩阵基本操作">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵基本操作"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
-								matlab 矩阵基本运算			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵基本运算
-【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】12345678910111213141516171819202122232425262728293031323334353637383940414243...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -445,7 +422,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 字符串处理和字符型数据
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
@@ -453,6 +430,29 @@
 							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
+								matlab 矩阵基本运算			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵基本运算
+【矩阵算术运算】 【矩阵关系运算】 【矩阵逻辑运算】【逆矩阵】123456789101112131415161718192021222324252627282930313233343536373839404...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="matlab 矩阵基本运算"/>
 							</a>
 						</div>
 					</li>												
@@ -468,7 +468,7 @@
 							</p>
 							<p class="relate-post-content">
 								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
-【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】12345678910111213141516171819202122232425262728293...
+【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】12345678910111213141...
 							</p>
 						</div>
 
@@ -528,29 +528,6 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
-								矩阵的特征值与特征向量			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 矩阵的特征值与特征向量
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">
 								稀疏矩阵			
 							</a>
@@ -568,6 +545,29 @@
 							<a href="/2020/11/08/Matlab%2010%20%20%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5/" title="稀疏矩阵">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="稀疏矩阵"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">
+								矩阵的特征值与特征向量			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								matlab 矩阵的特征值与特征向量
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/Matlab%2009%20%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" title="矩阵的特征值与特征向量">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="矩阵的特征值与特征向量"/>
 							</a>
 						</div>
 					</li>												
