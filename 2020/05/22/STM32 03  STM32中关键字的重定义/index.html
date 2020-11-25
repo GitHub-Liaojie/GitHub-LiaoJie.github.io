@@ -272,7 +272,7 @@
 
 	<a href="/2020/05/22/STM32%2003%20%20STM32%E4%B8%AD%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E9%87%8D%E5%AE%9A%E4%B9%89/" itemprop="url">
 		<time datetime="2020-05-21T16:00:00.000Z" itemprop="dateUpdated">
-	  		2020-11-14
+	  		2020-11-25
 	  </time>
 	</a> 
 
@@ -297,7 +297,7 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h1 id="STM32中关键字的重定义"><a href="#STM32中关键字的重定义" class="headerlink" title="STM32中关键字的重定义"></a>STM32中关键字的重定义</h1><p><img src="./img/blog_img/stm32/test.png"></p>
+			<h1 id="STM32中关键字的重定义"><a href="#STM32中关键字的重定义" class="headerlink" title="STM32中关键字的重定义"></a>STM32中关键字的重定义</h1><p><img src="/img/blog_img/stm32/test.png"></p>
 <ul>
 <li>项目为了在编写代码的时候更加的方便，需要一些关键字进行重新声明，如 uint32_t 关键字，我们一般使用 u32来进行表示，这样的话就可以更加方便的声明一些变量，下面是STM32中常用的关键字重定义函数。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///////////////////////////////////////////////////////////////////////////////////</span></span><br><span class="line"><span class="comment">//定义一些常用的数据类型短关键字 </span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int32_t</span>  s32;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int16_t</span> s16;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int8_t</span>  s8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">int32_t</span> sc32;  </span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">int16_t</span> sc16;  </span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">int8_t</span> sc8;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> __IO <span class="keyword">int32_t</span>  vs32;</span><br><span class="line"><span class="keyword">typedef</span> __IO <span class="keyword">int16_t</span>  vs16;</span><br><span class="line"><span class="keyword">typedef</span> __IO <span class="keyword">int8_t</span>   vs8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> __I <span class="keyword">int32_t</span> vsc32;  </span><br><span class="line"><span class="keyword">typedef</span> __I <span class="keyword">int16_t</span> vsc16; </span><br><span class="line"><span class="keyword">typedef</span> __I <span class="keyword">int8_t</span> vsc8;   </span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint32_t</span>  u32;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint16_t</span> u16;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">uint8_t</span>  u8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">uint32_t</span> uc32;  </span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">uint16_t</span> uc16;  </span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">uint8_t</span> uc8; </span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> __IO <span class="keyword">uint32_t</span>  vu32;</span><br><span class="line"><span class="keyword">typedef</span> __IO <span class="keyword">uint16_t</span> vu16;</span><br><span class="line"><span class="keyword">typedef</span> __IO <span class="keyword">uint8_t</span>  vu8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> __I <span class="keyword">uint32_t</span> vuc32;  </span><br><span class="line"><span class="keyword">typedef</span> __I <span class="keyword">uint16_t</span> vuc16; </span><br><span class="line"><span class="keyword">typedef</span> __I <span class="keyword">uint8_t</span> vuc8;  </span><br></pre></td></tr></table></figure>
 
@@ -344,6 +344,29 @@
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2020/11/08/STM32%2005%20/" title="STM32代码">
+								STM32代码			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 8日, 2020				
+							</p>
+							<p class="relate-post-content">
+								第一节 Ubuntu 系统
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2020/11/08/STM32%2005%20/" title="STM32代码">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/ubuntu.png" alt="STM32代码"/>
+							</a>
+						</div>
+					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -512,29 +535,6 @@ led_flash.v 文件
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">
-								字符串处理和字符型数据			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 8日, 2020				
-							</p>
-							<p class="relate-post-content">
-								matlab 字符串处理和字符型数据
-【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2020/11/08/Matlab%2004%20%E7%9F%A9%E9%98%B5%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/" title="matlab 矩阵基本运算">
 								matlab 矩阵基本运算			
 							</a>
@@ -558,23 +558,23 @@ led_flash.v 文件
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2020/11/08/Matlab%2006%20%20%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%20%E9%9A%8F%E6%9C%BA%E7%9F%A9%E9%98%B5%E5%92%8C%E9%80%9A%E7%94%A8%E7%9F%A9%E9%98%B5%E7%9A%84%E4%BA%A7%E7%94%9F/" title="特殊矩阵 随机矩阵和通用矩阵的产生">
-								特殊矩阵 随机矩阵和通用矩阵的产生			
+							<a class="relate-post-title" href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">
+								字符串处理和字符型数据			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
 								十一月 8日, 2020				
 							</p>
 							<p class="relate-post-content">
-								matlab 特殊矩阵 、随机矩阵和通用矩阵的产生
-【特殊矩阵】 【魔方矩阵】【范德蒙矩阵】【希尔伯特矩阵】【伴随矩阵】【帕斯卡矩阵】【size 函数】【正态分布和高斯分布矩阵】【均匀分布矩阵】12345678910111213141...
+								matlab 字符串处理和字符型数据
+【获取特定的字符】【字符串矩阵】【大小写变换】【字符排序】【字符串长度】【字符串比较】1234567891011121314151617181920212223242526272829303132...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2020/11/08/Matlab%2006%20%20%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5%20%E9%9A%8F%E6%9C%BA%E7%9F%A9%E9%98%B5%E5%92%8C%E9%80%9A%E7%94%A8%E7%9F%A9%E9%98%B5%E7%9A%84%E4%BA%A7%E7%94%9F/" title="特殊矩阵 随机矩阵和通用矩阵的产生">				
+							<a href="/2020/11/08/Matlab%2005%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%92%8C%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E6%8D%AE/" title="字符串处理和字符型数据">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="特殊矩阵 随机矩阵和通用矩阵的产生"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/matlab.png" alt="字符串处理和字符型数据"/>
 							</a>
 						</div>
 					</li>												
